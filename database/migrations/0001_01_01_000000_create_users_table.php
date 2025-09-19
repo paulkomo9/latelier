@@ -30,7 +30,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_status')->default(1);
             $table->unsignedBigInteger('online_status')->default(4);
             $table->unsignedBigInteger('is_client')->default(5);
-            $table->unsignedBigInteger('is_trainer')->default(6);
+            $table->unsignedBigInteger('is_trainer')->default(5);
             $table->unsignedBigInteger('is_super_admin')->default(5);
             $table->unsignedBigInteger('deleted_by')->nullable()->index();
             $table->string('language_code', 3)->index()->default('en');

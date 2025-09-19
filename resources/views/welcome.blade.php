@@ -171,7 +171,7 @@
           <div class="col-md-3 d-flex services align-self-stretch px-4 ftco-animate">
             <div class="d-block text-center">
               <div class="icon d-flex justify-content-center align-items-center">
-            		<span class="flaticon-diet"></span>
+            		<span class="flaticon-luxury"></span>
               </div>
               <div class="media-body p-2 mt-3">
                 <h3 class="heading">High-End Experience</h3>
@@ -182,7 +182,7 @@
           <div class="col-md-3 d-flex services align-self-stretch px-4 ftco-animate">
             <div class="d-block text-center">
               <div class="icon d-flex justify-content-center align-items-center">
-            		<span class="flaticon-workout"></span>
+            		<span class="flaticon-female"></span>
               </div>
               <div class="media-body p-2 mt-3">
                 <h3 class="heading">Ladies Only</h3>
@@ -193,7 +193,7 @@
           <div class="col-md-3 d-flex services align-self-stretch px-4 ftco-animate">
             <div class="d-block text-center">
               <div class="icon d-flex justify-content-center align-items-center">
-            		<span class="flaticon-diet-1"></span>
+            		<span class="flaticon-workout"></span>
               </div>
               <div class="media-body p-2 mt-3">
                 <h3 class="heading">Low-Impact, High Intensity Workouts</h3>
@@ -204,7 +204,7 @@
           <div class="col-md-3 d-flex services align-self-stretch px-4 ftco-animate">
             <div class="d-block text-center">
               <div class="icon d-flex justify-content-center align-items-center">
-            		<span class="flaticon-first"></span>
+            		<span class="flaticon-diet-1"></span>
               </div>
               <div class="media-body p-2 mt-3">
                 <h3 class="heading">Detoxification and Regeneration</h3>
