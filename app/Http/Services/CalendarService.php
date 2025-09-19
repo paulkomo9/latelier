@@ -245,6 +245,7 @@ class CalendarService
      * Sync appointments based on the schedule's date range.
      *
      * @param int $scheduleId
+     * @param string $title
      * @param string $startDateTime
      * @param string $endDateTime
      * @param int $trainerId
@@ -258,7 +259,7 @@ class CalendarService
      *
      * @return void
      */
-    public function syncAppointmentsFromSchedule($scheduleId, $startDateTime, $endDateTime, $trainerId, $created_by, $updated_by, $appointment_status, $slots, $appointment_image, $description, array $config = []): void 
+    public function syncAppointmentsFromSchedule($scheduleId, $title, $startDateTime, $endDateTime, $trainerId, $created_by, $updated_by, $appointment_status, $slots, $appointment_image, $description, array $config = []): void 
     {
         try {
             $start = Carbon::parse($startDateTime)->startOfDay();
@@ -301,6 +302,7 @@ class CalendarService
                 if (!$exists) {
                     Appointments::create([
                         'schedule_id' => $scheduleId,
+                        'title' => $title,
                         'appointment_image' => $appointment_image,
                         'start_date_time' => $dayStart,
                         'end_date_time' => $dayEnd,

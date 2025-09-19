@@ -162,6 +162,7 @@ class ScheduleService
                     // Sync appointments
                     $this->calendarService->syncAppointmentsFromSchedule(
                         $schedule->id,
+                        $schedule->title,
                         $schedule->start_date_time,
                         $schedule->end_date_time,
                         $schedule->trainer_id,
