@@ -1,0 +1,80 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SchedulesController;
+use App\Http\Controllers\WorkflowStatusController;
+use App\Http\Controllers\TrainersController;
+use App\Http\Controllers\BookingsController;
+use App\Http\Controllers\PackagesController;
+use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\CurrenciesController;
+use App\Http\Controllers\CheckoutController;
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+
+
+/**
+ * Routes should be wrapped with a prefix group:
+ */
+Route::group(['prefix' => '{lang}', 'middleware' => ['setlang']], function () {
+
+        Route::get('/about', [PageController::class, 'about'])->name('about');
+        Route::get('/contact', [PageController::class, 'contact'])->name('contact');
+
+        Auth::routes();
+
+        Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+        //Workflow Status
+        Route::get('workflow-status/search/{id}', [WorkflowStatusController::class, 'search'])->name('workflow-status.search');
+        Route::resource('/workflow-status', WorkflowStatusController::class)->name('*','workflow-status');
+
+        //Currencies
+        Route::get('currencies/search/{id}', [CurrenciesController::class, 'search'])->name('currencies.search');
+        Route::resource('/currencies', CurrenciesController::class)->name('*','currencies');
+
+        // Users
+        Route::resource('/users', UsersController::class)->name('*','users');
+
+        //Trainers
+        Route::get('trainers/search/{id}', [TrainersController::class, 'search'])->name('trainers.search');
+        Route::resource('/trainers', TrainersController::class)->name('*','trainers');
+
+        //Schedules
+        Route::get('schedules/entries', [SchedulesController::class, 'entries'])->name('schedules.entries');
+        Route::post('schedules/list',[SchedulesController::class, 'displaySchedules'])->name('schedules.list');
+        Route::resource('/schedules', SchedulesController::class)->name('*','schedules');
+
+        //Bookings
+        Route::get('booking/confirmation/{id}', [BookingsController::class, 'confirmation'])->name('bookings.confirmation');
+        Route::post('sessions/book/{id}', [BookingsController::class, 'book'])->name('sessions.book');
+        Route::resource('/bookings', BookingsController::class)->name('*','bookings');
+
+        //Packages
+        Route::get('packages/explore', [PackagesController::class, 'explore'])->name('packages.explore');
+        Route::get('packages/required', [PackagesController::class, 'required'])->name('packages.required');
+        Route::post('packages/list',[PackagesController::class, 'displayPackages'])->name('packages.list');
+        Route::resource('/packages', PackagesController::class)->name('*','packages');
+
+        //Calendar
+        Route::get('sessions/explore', [CalendarController::class, 'explore'])->name('sessions.explore');
+        Route::get('calendar/browse', [CalendarController::class, 'browse'])->name('calendar.browse');
+        Route::get('calendar/entries', [CalendarController::class, 'entries'])->name('calendar.entries');
+        Route::post('calendar/list',[CalendarController::class, 'displayCalendarEntries'])->name('calendar.list');
+        Route::get('calendar/search/{id}', [CalendarController::class, 'search'])->name('calendar.search');
+        Route::resource('/calendar', CalendarController::class)->name('*','calendar');
+
+        //Checkout
+        Route::get('checkout/confirmation', [CheckoutController::class, 'confirmation'])->name('checkout.confirmation');
+        Route::get('checkout/{type}/{id}', [CheckoutController::class, 'checkout'])->name('checkout.page');
+        Route::post('checkout/{type}/{id}', [CheckoutController::class, 'process'])->name('checkout.process');
+
+});
+
+
