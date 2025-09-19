@@ -50,43 +50,6 @@
 	    </div>
 	</div>
 		
-    <!--section class="ftco-section ftco-services">
-    	<div class="container">
-    		<div class="row">
-          <div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
-            <div class="d-block services-wrap text-center">
-              <div class="img" style="background-image: url(images/services-1.jpg);"></div>
-              <div class="media-body p-2 mt-3">
-                <h3 class="heading">Exercise Program</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-                <p><a href="#" class="btn btn-primary btn-outline-primary">Enrol Now</a></p>
-              </div>
-            </div>      
-          </div>
-          <div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
-            <div class="d-block services-wrap text-center">
-              <div class="img" style="background-image: url(images/services-2.jpg);"></div>
-              <div class="media-body p-2 mt-3">
-                <h3 class="heading">Nutrition Plans</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-                <p><a href="#" class="btn btn-primary btn-outline-primary">Enrol Now</a></p>
-              </div>
-            </div>    
-          </div>
-          <div class="col-md-4 d-flex services align-self-stretch px-4 ftco-animate">
-            <div class="d-block services-wrap text-center">
-              <div class="img" style="background-image: url(images/services-3.jpg);"></div>
-              <div class="media-body p-2 mt-3">
-                <h3 class="heading">Diet Program</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-                <p><a href="#" class="btn btn-primary btn-outline-primary">Enrol Now</a></p>
-              </div>
-            </div>      
-          </div>
-        </div>
-    	</div>
-    </section-->
-
 	@livewire('show-classes')
 
 
@@ -194,6 +157,63 @@
 					</div>
 				</div-->
 			</div>
+    </section>
+
+	<section class="ftco-section">
+    	<div class="container">
+    		<div class="row justify-content-center pb-5 mb-3">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+          	<span class="subheading mb-3">Why Us</span>
+            <h2>Why Choose L'Atelier Aquafitness?</h2>
+          </div>
+        </div>
+    		<div class="row">
+          <div class="col-md-3 d-flex services align-self-stretch px-4 ftco-animate">
+            <div class="d-block text-center">
+              <div class="icon d-flex justify-content-center align-items-center">
+            		<span class="flaticon-diet"></span>
+              </div>
+              <div class="media-body p-2 mt-3">
+                <h3 class="heading">High-End Experience</h3>
+                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+              </div>
+            </div>      
+          </div>
+          <div class="col-md-3 d-flex services align-self-stretch px-4 ftco-animate">
+            <div class="d-block text-center">
+              <div class="icon d-flex justify-content-center align-items-center">
+            		<span class="flaticon-workout"></span>
+              </div>
+              <div class="media-body p-2 mt-3">
+                <h3 class="heading">Ladies Only</h3>
+                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+              </div>
+            </div>    
+          </div>
+          <div class="col-md-3 d-flex services align-self-stretch px-4 ftco-animate">
+            <div class="d-block text-center">
+              <div class="icon d-flex justify-content-center align-items-center">
+            		<span class="flaticon-diet-1"></span>
+              </div>
+              <div class="media-body p-2 mt-3">
+                <h3 class="heading">Low-Impact, High Intensity Workouts</h3>
+                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+              </div>
+            </div>      
+          </div>
+          <div class="col-md-3 d-flex services align-self-stretch px-4 ftco-animate">
+            <div class="d-block text-center">
+              <div class="icon d-flex justify-content-center align-items-center">
+            		<span class="flaticon-first"></span>
+              </div>
+              <div class="media-body p-2 mt-3">
+                <h3 class="heading">Detoxification and Regeneration</h3>
+                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+              </div>
+            </div>      
+          </div>
+        </div>
+    	</div>
     </section>
 
 

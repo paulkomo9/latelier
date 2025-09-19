@@ -1,4 +1,4 @@
-<section class="ftco-section">
+<section class="ftco-section ftco-services">
         <div class="container">
             <div class="row">
                 @forelse ($classes as $class)
