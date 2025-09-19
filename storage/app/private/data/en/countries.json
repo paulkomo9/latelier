@@ -1,0 +1,74 @@
+[
+  {
+    "country_name": "United States of America",
+    "country_code": "USA",
+    "currency_code": "USD",
+    "currency_name": "United States Dollar"
+  },
+  {
+    "country_name": "Canada",
+    "country_code": "CAN",
+    "currency_code": "CAD",
+    "currency_name": "Canadian Dollar"
+  },
+  {
+    "country_name": "United Kingdom",
+    "country_code": "UK",
+    "currency_code": "GBP",
+    "currency_name": "British Pound Sterling"
+  },
+  {
+    "country_name": "Germany",
+    "country_code": "DEU",
+    "currency_code": "EUR",
+    "currency_name": "Euro"
+  },
+  {
+    "country_name": "Japan",
+    "country_code": "JPN",
+    "currency_code": "JPY",
+    "currency_name": "Japanese Yen"
+  },
+  {
+    "country_name": "Australia",
+    "country_code": "AUS",
+    "currency_code": "AUD",
+    "currency_name": "Australian Dollar"
+  },
+  {
+    "country_name": "United Arab Emirates",
+    "country_code": "UAE",
+    "currency_code": "AED",
+    "currency_name": "Dirhams"
+  },
+  {
+    "country_name": "India",
+    "country_code": "IND",
+    "currency_code": "INR",
+    "currency_name": "Indian Rupee"
+  },
+  {
+    "country_name": "Kenya",
+    "country_code": "KE",
+    "currency_code": "KSH",
+    "currency_name": "Kenya Shillings"
+  },
+  {
+    "country_name": "Tanzania",
+    "country_code": "TZ",
+    "currency_code": "TZS",
+    "currency_name": "Tanzania Shillings"
+  },
+  {
+    "country_name": "Uganda",
+    "country_code": "UG",
+    "currency_code": "UGX",
+    "currency_name": "Uganda Shillings"
+  },
+  {
+    "country_name": "Ghana",
+    "country_code": "GH",
+    "currency_code": "GHC",
+    "currency_name": "Ghana Cedes"
+  }
+]
