@@ -1,4 +1,4 @@
-<section class="ftco-section ftco-services">
+<section class="ftco-section {{ Request::is('/') ? 'ftco-services' : '' }}">
         <div class="container">
             <div class="row">
                 @forelse ($classes as $class)

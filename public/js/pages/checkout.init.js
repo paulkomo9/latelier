@@ -22,20 +22,7 @@ $(function () {
      */
     const stripe = Stripe(window.Latelier.stripeKey);
 
-    const options = {
-        clientSecret: window.Latelier.clientSecret,
-        appearance: {
-            theme: 'stripe',
-        },
-        wallets: {
-            link: 'never',        // 👈 Disables Stripe Link
-            applePay: 'auto',
-            googlePay: 'auto',
-        }
-    };
-
-
-    const elements = stripe.elements(options);
+    const elements = stripe.elements();
 
     const cardElement = elements.create('card');
     cardElement.mount('#card-element');

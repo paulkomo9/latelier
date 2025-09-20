@@ -47,7 +47,7 @@
                                 <form method="POST" action="{{ route('sessions.book', ['id' => $class->id, 'lang' => app()->getLocale()]) }}">
                                     @csrf
                                     <button type="submit" class="btn btn-success">
-                                        <i class="fa fa-check-circle me-1"></i> Book This Session
+                                        <i class="fa-solid fa-bag-shopping"></i> Book This Session
                                     </button>
                                 </form>
                             @else
