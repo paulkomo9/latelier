@@ -391,7 +391,7 @@ class CalendarService
                    11 => 'deleted_by_name',
                    12 => 'schedule_status_name',
                    13 => 'appointment_status_name',
-                );
+            );
 
         
 

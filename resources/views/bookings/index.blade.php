@@ -3,12 +3,31 @@
 @section('content')
     
     <div class="container pt-4 pb-4">
+
+         <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h4 class="mb-sm-0 font-size-18">{{  __('Bookings') }}</h4>
+
+                            <div class="page-title-right">
+                                <ol class="breadcrumb m-0">
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">{{  __('FitBoard') }}</a></li>
+                                    <li class="breadcrumb-item active">{{  __('Manage Bookings') }}</li>
+                                </ol>
+                            </div>
+
+                    </div>
+                </div>
+            </div>
+        <!-- end page title -->
+
         <div class="row">
             <div class="col-lg-6">
                 <div class="text-left mb-2">
-                    <button type="button" class="btn btn-primary waves-effect waves-light {{ !$isAdmin && (!isset($permissions['add']) || !$permissions['add']) ? 'disabled' : '' }}" data-bs-toggle="modal" data-bs-target="#schedulesModal" id="createNewSchedule">
+                    <!--button type="button" class="btn btn-primary waves-effect waves-light {{ !$isAdmin && (!isset($permissions['add']) || !$permissions['add']) ? 'disabled' : '' }}" data-bs-toggle="modal" data-bs-target="#schedulesModal" id="createNewSchedule">
                         <x-lucide-calendar-clock   class="font-size-16 align-middle me-2" style="width: 1.5em; height: 1.5em;"/>{{  __('Add New Session') }}
-                    </button>    
+                    </button-->    
                 </div>
             </div>
         </div>
@@ -17,13 +36,13 @@
             <div class="col-lg-6">
                 <div class="alert alert-success alert-dismissible fade show text-center" role="alert" id="notification-success" style="display:none;">
                     <i class="mdi mdi-check-all me-2"></i>
-                        <span id="notification-success-message">Schedule added.</span> 
+                        <span id="notification-success-message">Booking added.</span> 
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
 
                 <div class="alert alert-warning alert-dismissible fade show text-center" role="alert" id="notification-warning" style="display:none;">
                     <i class="mdi mdi-alert-outline me-2"></i>
-                                                  Could not add schedule!
+                                                  Could not add booking!
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             </div>
@@ -32,26 +51,25 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <table id="datatable-schedules" class="table table-bordered dt-responsive  nowrap w-100">
+                        <table id="datatable-bookings" class="table table-bordered dt-responsive  nowrap w-100">
                                 <thead>
                                     <tr>
-                                        <th>{{  __('ID') }}</th>
-                                        <th>{{  __('Title') }}</th>
-                                        <th>{{  __('Start Date & Time') }}</th>
-                                        <th>{{  __('End  Date & Time') }}</th>
+                                        <th>{{  __('#') }}</th>
+                                        <th>{{  __('Booking Ref.') }}</th>
+                                        <th>{{  __('Session Title') }}</th>
+                                        <th>{{  __('Date') }}</th>
+                                        <th>{{  __('Start Time') }}</th>
+                                        <th>{{  __('End Time') }}</th>
+                                        <th>{{  __('Booked By') }}</th>
                                         <th>{{  __('Status') }}</th>
-                                        <th>{{  __('Image') }}</th>
-                                        <th>{{  __('Estimated Time') }}</th>
-                                        <th>{{  __('Slots') }}</th>
-                                        <th>{{  __('Slots Taken') }}</th>
                                         <th>{{  __('Trainer') }}</th>
-                                        <th>{{  __('Recurring') }}</th>
+                                        <th>{{  __('Slots') }}</th>
+                                        <th>{{  __('Booked') }}</th>
                                         <th>{{  __('Location') }}</th>
-                                        <th>{{  __('Description') }}</th>
-                                        <th>{{  __('Created By') }}</th>
-                                        <th>{{  __('Created At') }}</th>
-                                        <th>{{  __('Updated By') }}</th>
-                                        <th>{{  __('Updated At') }}</th>
+                                        <th>{{  __('Booked By') }}</th>
+                                        <th>{{  __('Booked On') }}</th>
+                                        <th>{{  __('Attended At') }}</th>
+                                        <th>{{  __('Attendance Marked By') }}</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -289,13 +307,11 @@
         window.appLocale = "{{ app()->getLocale() }}";
     </script>
 
+
     <script>
-        window.geoapifyApiKey = "{{ config('services.geo.apify_key') }}";
+       window.uniquePageName = "bookings"; // Unique ID for this Blade file needed to tabs
     </script>
-    
-    <script>
-       window.uniquePageName = "schedules"; // Unique ID for this Blade file needed to tabs
-    </script>
+
     <script>
         window.translations = {
             zeroRecordsMessage: @json(__('messages.zero_records')),
@@ -326,16 +342,15 @@
      <script>
 
         const TRANSLATIONS = {
-            addNewSchedule: @json(__('Add New Session')),
-            editSchedule: @json(__('Edit Session')),
-            addSchedule: @json(__('Add Session')),
-            updateSchedule: @json(__('Update Session')),
-            deactivateSchedule: @json(__('Deactivate Session')),
-            confirmDeactivate: @json(__('Are you sure you want to deactivate session:')),
+            addNewBooking: @json(__('Add New Booking')),
+            editBooking: @json(__('Edit Booking')),
+            addBooking: @json(__('Add Booking')),
+            updateBooking: @json(__('Update Booking')),
+            deactivateSchedule: @json(__('Deactivate Booking')),
+            confirmDeactivate: @json(__('Are you sure you want to deactivate booking:')),
             recordLocked: @json(__('Record is locked. Contact the Systems Administrator.')),
             error: @json(__('Error')),
             choose: @json(__('Select..')),
-            search: @json(__('Search by building, street or landmark')),
             // Add as needed...
         };
     </script>
@@ -344,8 +359,8 @@
     <script src="{{ asset('js/pages/tabs.init.js') }}"></script>
 
 
-    <!-- schedules init -->
-   <script src="{{ asset('js/pages/schedules.init.js') }}"></script>
+    <!-- bookings init -->
+   <script src="{{ asset('js/pages/bookings.init.js') }}"></script>
 
    <!-- spinner init -->
    <script src="{{ asset('js/pages/spinner.init.js') }}"></script>

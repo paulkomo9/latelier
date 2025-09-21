@@ -26,6 +26,7 @@ class BookingsController extends Controller
     {
         $this->middleware(['guest.lang']);
         $this->middleware(['check.plan','restrict.multi.booking'])->only('book'); 
+        $this->middleware(['check.access'])->only('index','displayBookings'); 
         $this->bookingService = $bookingService;
     }
 
@@ -196,6 +197,53 @@ class BookingsController extends Controller
 
                 return redirect()->back()->with('error', 'An unexpected error occurred. Please try again.');
         }
+    }
+
+   
+    /**
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function displayBookings(Request $request)
+    {
+        try {
+                $limit_data = $request->input('length');
+                $start_data = $request->input('start');
+                $order_column = $request->input('order.0.column');
+                $order_dir = $request->input('order.0.dir');
+                $search = $request->input('search.value'); 
+                $draw = $request->input('draw');
+                $var = $request->input('booking_status');
+                
+                $json_data = $this->bookingService->displayBookingsTableData(
+                    $limit_data, 
+                    $start_data, 
+                    $order_column, 
+                    $order_dir, 
+                    $search, 
+                    $draw, 
+                    $var, 
+                    $request); 
+
+            return response()->json($json_data);
+
+        } catch (Throwable $e) {
+                // Custom logging to 'bookings-controller-error.log'
+                Log::build([
+                    'driver' => 'single',
+                    'path' => storage_path('logs/bookings-controller-error.log')
+                ])->error("Display Bookings Failed: " . $e->getMessage(), [
+                    'route' => Route::currentRouteName(),
+                    'user_id' => Auth::id() ?? 'N/A',
+                    'request'=> json_encode($request->all()),
+                    'exception' => $e->getTraceAsString()
+                ]);
+
+                //return empty array 
+            return response()->json([], 500);
+
+        } 
+               
     }
 
 }

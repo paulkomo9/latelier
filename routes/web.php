@@ -54,6 +54,7 @@ Route::group(['prefix' => '{lang}', 'middleware' => ['setlang']], function () {
         //Bookings
         Route::get('booking/confirmation/{id}', [BookingsController::class, 'confirmation'])->name('bookings.confirmation');
         Route::post('sessions/book/{id}', [BookingsController::class, 'book'])->name('sessions.book');
+        Route::post('bookings/list',[BookingsController::class, 'displayBookings'])->name('bookings.list');
         Route::resource('/bookings', BookingsController::class)->name('*','bookings');
 
         //Packages

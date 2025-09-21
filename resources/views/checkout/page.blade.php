@@ -30,9 +30,14 @@
 
                         <div id="card-errors" class="text-danger mb-3" role="alert"></div>
 
+                        @php
+                            $user = Auth::user();
+                            $cardholdername = trim($user->firstname . ' ' . ($user->lastname ?? ''));
+                        @endphp
+
                         <div class="mb-3">
                             <label for="card-holder-name" class="form-label">Cardholder Name</label>
-                            <input id="card-holder-name" type="text" class="form-control" required>
+                            <input id="card-holder-name" type="text" class="form-control" value="{{ $cardholdername }}" required readonly>
                         </div>
 
                         <div class="mb-3">

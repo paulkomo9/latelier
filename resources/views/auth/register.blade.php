@@ -20,7 +20,7 @@
                 <!--div class="card-header">{{ __('') }}</div-->
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register', ['lang' => app()->getLocale()]) }}">
+                    <form method="POST" action="{{ route('register', ['lang' => app()->getLocale()]) }}" id="registerForm">
                         @csrf
 
                         <div class="row mb-3">
@@ -140,4 +140,8 @@
         </div>
     </div>
 </div>
+
+<!-- spinner init -->
+<script src="{{ asset('js/pages/spinner.init.js') }}"></script>
+
 @endsection

@@ -21,7 +21,7 @@
     <div class="col-md-8">
       <div class="card shadow-sm bg-light rounded">
         <div class="card-body">
-          <form method="POST" action="{{ route('login', ['lang' => app()->getLocale()]) }}">
+          <form method="POST" action="{{ route('login', ['lang' => app()->getLocale()]) }}" id="loginForm">
                 @csrf
 
                 {{-- Email --}}
@@ -79,7 +79,7 @@
                     <div class="col-md-4 offset-md-4">
                         <button type="submit" class="btn btn-primary w-100">
                             <x-uiw-login style="width: 1.5em; height: 1.5em;"/>
-                            {{ __('Login') }}
+                            {{ __('Login') }}<i class="fa fa-spinner fa-spin font-size-20 align-middle me-2" style="display:none;"></i>
                         </button>
                     </div>
                 </div>
@@ -152,4 +152,8 @@
     font-size: 1.25rem;
   }
 </style>
+
+<!-- spinner init -->
+<script src="{{ asset('js/pages/spinner.init.js') }}"></script>
+
 @endsection
