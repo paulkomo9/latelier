@@ -142,4 +142,11 @@ return[
         'create_failed' => 'Failed to create the checkout. Please try again.',
         'search_failed' => 'Failed to search checkout by criteria. Please try again.',
     ],
+    'subscription' => [
+        'delete_failed' => 'Failed to delete the subscription. Please try again.',
+        'update_failed' => 'Failed to update the subscription. Please try again.',
+        'deactivate_failed' => 'Failed to deactivate the subscription. Please try again.',
+        'create_failed' => 'Failed to create the subscription. Please try again.',
+        'search_failed' => 'Failed to search subscription by criteria. Please try again.',
+    ],
 ];

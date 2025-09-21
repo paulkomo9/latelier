@@ -33,7 +33,7 @@ return new class extends Migration
             $table->dateTime('expires_at');                             // actual expiry date
 
             // Status
-            $table->unsignedBigInteger('usr_pkg_status')->default(1);           // link to workflow_status
+            $table->unsignedBigInteger('subscription_status')->default(1);           // link to workflow_status
             $table->text('notes')->nullable();
 
             $table->timestamp('created_at')->useCurrent();
@@ -45,7 +45,7 @@ return new class extends Migration
             $table->foreign('package_id')->references('id')->on('packages')->onDelete('restrict');
             $table->foreign('payment_id')->references('id')->on('payments')->onDelete('set null');
             $table->foreign('purchased_by')->references('id')->on('users')->onDelete('set null');
-            $table->foreign('usr_pkg_status')->references('id')->on('workflow_status')->onDelete('restrict');
+            $table->foreign('subscription_status')->references('id')->on('workflow_status')->onDelete('restrict');
             $table->foreign('deleted_by')->references('id')->on('users')->onDelete('restrict')->onUpdate('cascade');
         });
 

@@ -12,6 +12,7 @@ use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\CurrenciesController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\SubscriptionsController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -56,6 +57,12 @@ Route::group(['prefix' => '{lang}', 'middleware' => ['setlang']], function () {
         Route::post('sessions/book/{id}', [BookingsController::class, 'book'])->name('sessions.book');
         Route::post('bookings/list',[BookingsController::class, 'displayBookings'])->name('bookings.list');
         Route::resource('/bookings', BookingsController::class)->name('*','bookings');
+
+        
+        //Subscriptions
+        Route::post('subscriptions/list',[SubscriptionsController::class, 'displaySubscriptions'])->name('subscriptions.list');
+        Route::resource('/subscriptions', SubscriptionsController::class)->name('*','subscriptions');
+
 
         //Packages
         Route::get('packages/explore', [PackagesController::class, 'explore'])->name('packages.explore');

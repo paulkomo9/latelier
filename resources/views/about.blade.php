@@ -29,8 +29,9 @@
 	            </div>
 	          </div>
 	          <div class="pl-md-5">
-							<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-							<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+							<p>L'Atelier Aquafitness is a high-end Aquafitness boutique Studio bringing to Dubai an amazing healthy lifestyle concept revolving around Aquabiking, Iyashi dome and Detox Juice .It is currently a Ladies only facility.</p>
+              <p>Aquabiking is one of Europe's most popular methods for keeping fit and healthy, the process is low impact high intensity workouts involving state of the art submerged bikes in a luxury indoor swimming pool.</p>
+							<p>L'Atelier Aquafitness has become one of the most popular Dubai's go-to fitness locations and a permanent addition to the diaries of anyone looking to stay slim and toned.</p>
 							<!--div class="founder d-flex align-items-center mt-5">
 								<div class="img" style="background-image: url('{{ asset('images/fitness-group-girls-doing-aerobical-excercises-swimming-pool-aqua-park-sport-leisure-activities.jpg') }}');"></div>
 								<div class="text pl-3">
@@ -55,7 +56,7 @@
           <div class="col-md-3 d-flex services align-self-stretch px-4 ftco-animate">
             <div class="d-block text-center">
               <div class="icon d-flex justify-content-center align-items-center">
-            		<span class="flaticon-diet"></span>
+            		<span class="flaticon-first"></span>
               </div>
               <div class="media-body p-2 mt-3">
                 <h3 class="heading">High-End Experience</h3>
@@ -66,7 +67,7 @@
           <div class="col-md-3 d-flex services align-self-stretch px-4 ftco-animate">
             <div class="d-block text-center">
               <div class="icon d-flex justify-content-center align-items-center">
-            		<span class="flaticon-workout"></span>
+            		<span class="flaticon-woman"></span>
               </div>
               <div class="media-body p-2 mt-3">
                 <h3 class="heading">Ladies Only</h3>
@@ -88,7 +89,7 @@
           <div class="col-md-3 d-flex services align-self-stretch px-4 ftco-animate">
             <div class="d-block text-center">
               <div class="icon d-flex justify-content-center align-items-center">
-            		<span class="flaticon-first"></span>
+            		<span class="flaticon-diet"></span>
               </div>
               <div class="media-body p-2 mt-3">
                 <h3 class="heading">Detoxification and Regeneration</h3>

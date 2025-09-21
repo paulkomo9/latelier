@@ -29,6 +29,7 @@ class BookingsController extends Controller
         $this->middleware(['check.access'])->only('index','displayBookings'); 
         $this->bookingService = $bookingService;
     }
+    
 
     /**
      * Display a listing of the resource.

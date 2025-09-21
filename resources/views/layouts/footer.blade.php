@@ -17,8 +17,8 @@
 						<div class="row">
 							<div class="col-md-12 col-lg-8 mb-md-0 mb-4">
 								<h2 class="footer-heading"><a href="#" class="logo">L'Atelier<span>Aqua Fitness</span></a></h2>
-								<p>Ride the current, not the impact. Our aquatic cycling experience blends resistance and rhythm to deliver serious results — all while keeping you cool, supported, and in motion.</p>
-								<a href="#">read more <span class="ion-ios-arrow-round-forward"></span></a>
+								<p>L'Atelier Aquafitness is a high-end Aquafitness boutique Studio bringing to Dubai an amazing healthy lifestyle concept revolving around Aquabiking, Iyashi dome and Detox Juice .It is currently a Ladies only facility.</p>
+								<!--a href="#">read more <span class="ion-ios-arrow-round-forward"></span></a-->
 							</div>
 						</div>
 					</div>

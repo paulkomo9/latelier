@@ -8,12 +8,12 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0 font-size-18">{{  __('Bookings') }}</h4>
+                        <h4 class="mb-sm-0 font-size-18">{{  __('Subcriptions') }}</h4>
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="javascript: void(0);">{{  __('FitBoard') }}</a></li>
-                                    <li class="breadcrumb-item active">{{  __('Manage Bookings') }}</li>
+                                    <li class="breadcrumb-item active">{{  __('Manage Subscriptions') }}</li>
                                 </ol>
                             </div>
 
@@ -26,7 +26,7 @@
             <div class="col-lg-6">
                 <div class="text-left mb-2">
                     <!--button type="button" class="btn btn-primary waves-effect waves-light {{ !$isAdmin && (!isset($permissions['add']) || !$permissions['add']) ? 'disabled' : '' }}" data-bs-toggle="modal" data-bs-target="#schedulesModal" id="createNewSchedule">
-                        <x-lucide-calendar-clock   class="font-size-16 align-middle me-2" style="width: 1.5em; height: 1.5em;"/>{{  __('Add New Session') }}
+                        <x-lucide-calendar-clock   class="font-size-16 align-middle me-2" style="width: 1.5em; height: 1.5em;"/>{{  __('Add New Subscription') }}
                     </button-->    
                 </div>
             </div>
@@ -36,13 +36,13 @@
             <div class="col-lg-6">
                 <div class="alert alert-success alert-dismissible fade show text-center" role="alert" id="notification-success" style="display:none;">
                     <i class="mdi mdi-check-all me-2"></i>
-                        <span id="notification-success-message">Booking added.</span> 
+                        <span id="notification-success-message">Subscription added.</span> 
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
 
                 <div class="alert alert-warning alert-dismissible fade show text-center" role="alert" id="notification-warning" style="display:none;">
                     <i class="mdi mdi-alert-outline me-2"></i>
-                                                  Could not add booking!
+                                                  Could not add subscription!
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             </div>
@@ -51,25 +51,20 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <table id="datatable-bookings" class="table table-bordered dt-responsive  nowrap w-100">
+                        <table id="datatable-subscriptions" class="table table-bordered dt-responsive  nowrap w-100">
                                 <thead>
                                     <tr>
                                         <th>{{  __('#') }}</th>
-                                        <th>{{  __('Booking Ref.') }}</th>
-                                        <th>{{  __('Session Title') }}</th>
-                                        <th>{{  __('Date') }}</th>
-                                        <th>{{  __('Start Time') }}</th>
-                                        <th>{{  __('End Time') }}</th>
-                                        <th>{{  __('Booked By') }}</th>
+                                        <th>{{  __('Member') }}</th>
+                                        <th>{{  __('Package') }}</th>
                                         <th>{{  __('Status') }}</th>
-                                        <th>{{  __('Trainer') }}</th>
-                                        <th>{{  __('Slots') }}</th>
-                                        <th>{{  __('Booked') }}</th>
-                                        <th>{{  __('Location') }}</th>
-                                        <th>{{  __('Booked By') }}</th>
-                                        <th>{{  __('Booked On') }}</th>
-                                        <th>{{  __('Attended At') }}</th>
-                                        <th>{{  __('Attendance Marked By') }}</th>
+                                        <th>{{  __('Sessions') }}</th>
+                                        <th>{{  __('Remaining') }}</th>
+                                        <th>{{  __('Validity') }}</th>
+                                        <th>{{  __('Purchased On') }}</th>
+                                        <th>{{  __('Expires On') }}</th>
+                                        <th>{{  __('Purchased By') }}</th>
+                                        <th>{{  __('Notes') }}</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -309,7 +304,7 @@
 
 
     <script>
-       window.uniquePageName = "bookings"; // Unique ID for this Blade file needed to tabs
+       window.uniquePageName = "subscriptions"; // Unique ID for this Blade file needed to tabs
     </script>
 
     <script>
@@ -342,12 +337,12 @@
      <script>
 
         const TRANSLATIONS = {
-            addNewBooking: @json(__('Add New Booking')),
-            editBooking: @json(__('Edit Booking')),
-            addBooking: @json(__('Add Booking')),
-            updateBooking: @json(__('Update Booking')),
-            deactivateBooking: @json(__('Deactivate Booking')),
-            confirmDeactivate: @json(__('Are you sure you want to deactivate booking:')),
+            addNewSubcription: @json(__('Add New Subscription')),
+            editSubscription: @json(__('Edit Subscription')),
+            addSubcription: @json(__('Add Subcription')),
+            updateSubscription: @json(__('Update Subscription')),
+            deactivateSubscription: @json(__('Deactivate Subscription')),
+            confirmDeactivate: @json(__('Are you sure you want to deactivate subscription:')),
             recordLocked: @json(__('Record is locked. Contact the Systems Administrator.')),
             error: @json(__('Error')),
             choose: @json(__('Select..')),
@@ -359,8 +354,8 @@
     <script src="{{ asset('js/pages/tabs.init.js') }}"></script>
 
 
-    <!-- bookings init -->
-   <script src="{{ asset('js/pages/bookings.init.js') }}"></script>
+    <!-- subscriptions init -->
+   <script src="{{ asset('js/pages/subscriptions.init.js') }}"></script>
 
    <!-- spinner init -->
    <script src="{{ asset('js/pages/spinner.init.js') }}"></script>

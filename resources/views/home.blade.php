@@ -186,7 +186,7 @@
                             <i class="fa-solid fa-money-check-dollar fa-2x text-info"></i>
                         </div>
                         <div class="category-info">
-                            <a href="{{ route('packages.index', ['lang' => app()->getLocale()]) }}" class="h6 d-block text-primary">Subscriptions</a>
+                            <a href="{{ route('subscriptions.index', ['lang' => app()->getLocale()]) }}" class="h6 d-block text-primary">Subscriptions</a>
                             <p class="text-muted small">(Member's Subscriptions, Packages, Plans)</p>
                         </div>
                     </div>
