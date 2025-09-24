@@ -36,6 +36,9 @@ class SchedulesController extends Controller
     public function index(Request $request)
     {
         try {
+
+            \Log::info('Laravel logging works 🎉');
+
                 // get the route name
                 $routeName = Route::currentRouteName() ?? throw new \RuntimeException("Current route name could not be determined.");
 

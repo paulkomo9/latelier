@@ -41,7 +41,7 @@ class UploadService
                         foreach ($request->file($inputName) as $file) {
                             if ($file instanceof UploadedFile) {
 
-                                // generate filename
+                                //generate filename
                                 $filename = $this->generateFileName($file);
                                 $path = $file->storeAs($directory, $filename, $disk);
                                 Storage::disk($disk)->setVisibility($path, 'public');
