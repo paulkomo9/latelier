@@ -36,10 +36,13 @@ class UploadService
                                 // generate filename
                                 $filename = $this->generateFileName($file);
                                 //$path = $file->storeAs($directory, $filename, $disk);
-                                $path = $file->storeAs($directory, $filename, [
+                                /*$path = $file->storeAs($directory, $filename, [
                                     'disk' => $disk,
                                     'visibility' => 'public'
-                                ]);
+                                ]);*/
+                                $path = $file->storeAs($directory, $filename, $disk);
+                                Storage::disk($disk)->setVisibility($path, 'public');
+
 
                                 $uploadedFiles[] = Storage::disk($disk)->url($path);
                             }
@@ -55,10 +58,13 @@ class UploadService
                                 // generate filename
                                 $filename = $this->generateFileName($file);
                                 //$path = $file->storeAs($directory, $filename, $disk);
-                                $path = $file->storeAs($directory, $filename, [
+                                /*$path = $file->storeAs($directory, $filename, [
                                     'disk' => $disk,
                                     'visibility' => 'public'
-                                ]);
+                                ]);*/
+
+                                $path = $file->storeAs($directory, $filename, $disk);
+                                Storage::disk($disk)->setVisibility($path, 'public');
 
                             return Storage::disk($disk)->url($path);
                         }

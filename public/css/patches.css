@@ -226,6 +226,17 @@ td.dtr-control::before {
 }
 
 
+/*background for the row groups in a datatable*/
+.group {
+    background-color: #f0f0f0;
+    font-weight: bold;
+    text-align: left;
+    padding: 10px;
+    border-top: 2px solid #ccc;
+}
+
+
+
 
 
 
