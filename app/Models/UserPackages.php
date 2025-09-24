@@ -25,7 +25,7 @@ class UserPackages extends Model
         'validity_unit',
         'purchased_at',
         'expires_at',
-        'usr_pkg_status',
+        'subscription_status',
         'notes',
     ];
 

@@ -25,9 +25,13 @@ class CheckRoleModuleAccess
                 $user = $request->user();
                 //$currentRoute = Route::currentRouteName();
                 $isAdmin = ($user->is_super_admin == 5); // or whatever logic you use
+                $isTrainer = ($user->is_trainer == 5); // or whatever logic you use
+                $isClient = ($user->is_client == 5); // or whatever logic you use
 
                 // Always set `isAdmin` flag in request attributes
                 $request->attributes->set('isAdmin', $isAdmin);
+                $request->attributes->set('isTrainer', $isTrainer);
+                $request->attributes->set('isClient', $isClient);
 
             return $next($request);
 

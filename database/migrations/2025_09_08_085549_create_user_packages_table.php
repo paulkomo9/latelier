@@ -33,7 +33,7 @@ return new class extends Migration
             $table->dateTime('expires_at');                             // actual expiry date
 
             // Status
-            $table->unsignedBigInteger('subscription_status')->default(1);           // link to workflow_status
+            $table->unsignedBigInteger('subscription_status')->default(21);           // link to workflow_status
             $table->text('notes')->nullable();
 
             $table->timestamp('created_at')->useCurrent();

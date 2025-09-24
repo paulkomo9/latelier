@@ -36,7 +36,7 @@ return new class extends Migration
                 packages.package,
                 CONCAT_WS(' ', users_2.firstname, users_2.lastname) as purchased_by_name,
                 CONCAT_WS(' ', users_3.firstname, users_3.lastname) as deleted_by_name,
-                workflow_status.status_name as subscription_name,
+                workflow_status.status_name as subscription_status_name,
                 workflow_status.css as subscription_status_name_css
             FROM
                 user_packages

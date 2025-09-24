@@ -36,7 +36,7 @@ class CreateUserPackageAfterPayment
             'sessions_remaining' => $package->sessions_total,
             'validity_quantity' => $package->validity_quantity,
             'validity_unit' => $package->validity_unit,
-            'usr_pkg_status' => 21,
+            'subscription_status' => 21,
             'notes' => 'Created from successful payment'
         ]);
     }

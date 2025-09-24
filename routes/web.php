@@ -41,6 +41,7 @@ Route::group(['prefix' => '{lang}', 'middleware' => ['setlang']], function () {
         Route::resource('/currencies', CurrenciesController::class)->name('*','currencies');
 
         // Users
+        Route::post('users/list',[UsersController::class, 'displayUsers'])->name('users.list');
         Route::resource('/users', UsersController::class)->name('*','users');
 
         //Trainers

@@ -176,7 +176,7 @@
               </div>
               <div class="media-body p-2 mt-3">
                 <h3 class="heading">High-End Experience</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                <p>L'Atelier Aquafitness is a high end aqua fitness boutique bringing to Dubai a new and amazing fitness concept known in Europe as Aquabiking.</p>
               </div>
             </div>      
           </div>
