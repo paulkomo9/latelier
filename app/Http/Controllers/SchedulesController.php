@@ -83,6 +83,12 @@ class SchedulesController extends Controller
         try {
                 \Log::info('$_FILES', $_FILES);
 
+                Log::info('PHP limits', [
+                    'upload_max_filesize' => ini_get('upload_max_filesize'),
+                    'post_max_size' => ini_get('post_max_size'),
+                ]);
+
+
 
 
 
