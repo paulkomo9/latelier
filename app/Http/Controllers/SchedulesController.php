@@ -81,17 +81,6 @@ class SchedulesController extends Controller
     public function store(ScheduleRequest $request)
     {
         try {
-                \Log::info('$_FILES', $_FILES);
-
-                Log::info('PHP limits', [
-                    'upload_max_filesize' => ini_get('upload_max_filesize'),
-                    'post_max_size' => ini_get('post_max_size'),
-                ]);
-
-
-
-
-
                 $user = Auth::user();
                 $schedule_id = $request->schedule_id;
                 $title = $request->title;
@@ -129,19 +118,10 @@ class SchedulesController extends Controller
                     $existingSchedule = $this->scheduleService->searchSchedules($criteria, 'find');
                 }
 
-                Log::info('UploadService: handleUpload triggered', [
-                    'inputName' => $title,
-                    'isMultiple' => false,
-                    'hasFile' => $request->hasFile('image'),
-                ]);
-
-
                 // Check if a new image/logo is uploaded, otherwise keep the existing one
                 $imageUrl = $request->hasFile('image')  ? $this->uploadService->handleUpload(false, $request, 'image', 'images/schedules', 's3') : ($existingSchedule->schedule_image ?? null);
 
 
-
-      
                 $response = $this->scheduleService->updatecreateSchedule($schedule_id, $title, $startDateTime, $endDateTime, $description, $estimated_time, $slots, $location, 
                                                                 $location_latitude, $location_longitude, $recurring_status, $trainer_id, $imageUrl, $schedule_status, $created_by, $updated_by);
             
