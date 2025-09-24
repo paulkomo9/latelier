@@ -118,7 +118,7 @@ class SchedulesController extends Controller
                 }
 
 
-                  // Check if a new image/logo is uploaded, otherwise keep the existing one
+                // Check if a new image/logo is uploaded, otherwise keep the existing one
                 $imageUrl = $request->hasFile('image')  ? $this->uploadService->handleUpload(false, $request, 'image', 'images/schedules', 's3') : ($existingSchedule->schedule_image ?? null);
 
 

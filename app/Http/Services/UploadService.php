@@ -27,22 +27,24 @@ class UploadService
     {
         $uploadedFiles = []; // Ensure this is initialized for both single and multiple uploads
 
+        Log::info('UploadService: handleUpload triggered', [
+            'inputName' => $inputName,
+            'isMultiple' => $isMultiple,
+            'hasFile' => $request->hasFile($inputName),
+        ]);
+
+
         try{
                 if ($isMultiple) {
                     // Handle multiple files
                     if ($request->hasFile($inputName)) {
                         foreach ($request->file($inputName) as $file) {
                             if ($file instanceof UploadedFile) {
+
                                 // generate filename
                                 $filename = $this->generateFileName($file);
-                                //$path = $file->storeAs($directory, $filename, $disk);
-                                /*$path = $file->storeAs($directory, $filename, [
-                                    'disk' => $disk,
-                                    'visibility' => 'public'
-                                ]);*/
                                 $path = $file->storeAs($directory, $filename, $disk);
                                 Storage::disk($disk)->setVisibility($path, 'public');
-
 
                                 $uploadedFiles[] = Storage::disk($disk)->url($path);
                             }
@@ -55,18 +57,23 @@ class UploadService
                     if ($request->hasFile($inputName)) {
                         $file = $request->file($inputName);
                         if ($file instanceof UploadedFile) {
-                                // generate filename
-                                $filename = $this->generateFileName($file);
-                                //$path = $file->storeAs($directory, $filename, $disk);
-                                /*$path = $file->storeAs($directory, $filename, [
-                                    'disk' => $disk,
-                                    'visibility' => 'public'
-                                ]);*/
 
+                                Log::info('UploadService: Single file is valid', [
+                                    'originalName' => $file->getClientOriginalName(),
+                                    'mimeType' => $file->getMimeType(),
+                                ]);
+
+                                //generate filename
+                                $filename = $this->generateFileName($file);
                                 $path = $file->storeAs($directory, $filename, $disk);
                                 Storage::disk($disk)->setVisibility($path, 'public');
 
                             return Storage::disk($disk)->url($path);
+
+                            Log::info('UploadService: File uploaded successfully', [
+                                'path' => $path,
+                                'url' => Storage::disk($disk)->url($path),
+                            ]);
                         }
                     }
                     
