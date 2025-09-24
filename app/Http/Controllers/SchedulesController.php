@@ -81,12 +81,8 @@ class SchedulesController extends Controller
     public function store(ScheduleRequest $request)
     {
         try {
-                Log::info('Request debug', [
-                    'allFiles' => $request->allFiles(),
-                    'hasFile' => $request->hasFile('image'),
-                    'contentType' => $request->header('Content-Type'),
-                    'inputKeys' => array_keys($request->all()),
-                ]);
+                \Log::info('$_FILES', $_FILES);
+
 
 
 
