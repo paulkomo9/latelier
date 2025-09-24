@@ -37,8 +37,6 @@ class SchedulesController extends Controller
     {
         try {
 
-            \Log::info('Laravel logging works 🎉');
-
                 // get the route name
                 $routeName = Route::currentRouteName() ?? throw new \RuntimeException("Current route name could not be determined.");
 
@@ -119,6 +117,12 @@ class SchedulesController extends Controller
                     // get schedule data
                     $existingSchedule = $this->scheduleService->searchSchedules($criteria, 'find');
                 }
+
+                Log::info('UploadService: handleUpload triggered', [
+                    'inputName' => $title,
+                    'isMultiple' => false,
+                    'hasFile' => $request->hasFile('image'),
+                ]);
 
 
                 // Check if a new image/logo is uploaded, otherwise keep the existing one
