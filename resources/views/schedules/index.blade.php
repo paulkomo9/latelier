@@ -243,7 +243,7 @@
 
                                                 <div class="row mb-3">
                                                     <div class="upload-box" id="singleUpload">
-                                                        <input type="file" id="singleImageInput" accept="image/*" class="hidden-input">
+                                                        <input type="file" id="singleImageInput" name="image" accept="image/*" class="hidden-input">
                                                             {{ __('Drop an image here or click to upload schedule image') }}
                                                                 <img id="singlePreview" class="img-thumbnail mt-2" style="ddisplay: none; max-width: 600px; max-height: 200px; object-fit: contain;">
                                                     </div>
