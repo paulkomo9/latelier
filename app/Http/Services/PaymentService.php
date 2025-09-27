@@ -304,16 +304,21 @@ class PaymentService
                         $edit =  $payment->id;
                         $delete =  $payment->id;
 
-                        $payment_amount = $payment->payment_amount ? number_format($payment->payment_amount, 2) : "0.00";
-                        $amount = $payment->amount ? number_format($payment->amount, 2) : "0.00";
+                        $payment_amount = is_numeric($payment->payment_amount) ? (float) $payment->payment_amount : 0;
+                        $amount = is_numeric($payment->amount) ? (float) $payment->amount : 0;
+
                         $netAmount = $payment_amount - $amount;
+
+                        $payment_amount_formatted = number_format($payment_amount, 2);
+                        $amount_formatted = number_format($amount, 2);
+                        $netAmount_formatted = number_format($netAmount, 2);
 
                         $nestedData['id'] = $counter;
                         $nestedData['reference'] = $payment->payment_reference;
                         $nestedData['package'] = $payment->package;
-                        $nestedData['amount'] = $payment->payment_gateway_currency ." ". $amount;
-                        $nestedData['payment_amount'] = $payment->payment_gateway_currency ." ". $payment_amount;
-                        $nestedData['fees'] = $payment->payment_gateway_currency . ' ' . number_format($netAmount, 2);
+                        $nestedData['amount'] = $payment->payment_gateway_currency ." ". $amount_formatted;
+                        $nestedData['payment_amount'] = $payment->payment_gateway_currency ." ". $payment_amount_formatted;
+                        $nestedData['fees'] = $payment->payment_gateway_currency . ' ' . $netAmount_formatted;
 
 
                         $nestedData['card_type'] = $payment->card_brand;
