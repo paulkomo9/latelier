@@ -12,7 +12,7 @@
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">{{  __('FitBoard') }}</a></li>
+                                    <li class="breadcrumb-item"><a href="{{ route('home', ['lang' => app()->getLocale()]) }}">{{  __('FitBoard') }}</a></li>
                                     <li class="breadcrumb-item active">{{  __('Bookings') }}</li>
                                 </ol>
                             </div>

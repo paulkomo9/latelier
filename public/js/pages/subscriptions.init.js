@@ -22,6 +22,7 @@ $(function () {
 
     // load all datatable 
     var subscription_status_all = 0;
+    var myacc = 0;
 
     var tableSubscriptions = $('#datatable-subscriptions')
     .on('xhr.dt', function ( e, settings, json, xhr ) {
@@ -43,7 +44,7 @@ $(function () {
             "url": "/"+locale+"/subscriptions/list",
             "dataType": "json",
             "type": "POST",
-            "data":{ _token:  $('meta[name="csrf-token"]').attr('content'), subscription_status: subscription_status_all}
+            "data":{ _token:  $('meta[name="csrf-token"]').attr('content'), subscription_status: subscription_status_all, myacc: myacc}
         },
         "columns": [
             { "data": "id", "className": "text-center vertical-center" },
@@ -116,10 +117,10 @@ $(function () {
         "columns": [
             { "data": "id", "className": "text-center vertical-center" },
             { "data": "package", "className": "vertical-center" },
-            { "data": "subscription_status", "className": "vertical-center" },
-            { "data": "sessions_total", "className": "vertical-center" },
-            { "data": "sessions_remaining", "className": "vertical-center" },
-            { "data": "validity", "className": "vertical-center" },
+            { "data": "subscription_status", "className": "text-center vertical-center" },
+            { "data": "sessions_total", "className": "text-center vertical-center" },
+            { "data": "sessions_remaining", "className": "text-center vertical-center" },
+            { "data": "validity", "className": "text-center vertical-center" },
             { "data": "purchased_on", "className": "vertical-center" },
             { "data": "expires_at",  "className": "vertical-center" },
             { "data": "options", "className": "vertical-center" } 

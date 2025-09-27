@@ -34,7 +34,7 @@
                         <hr>
 
                         <div class="mb-3">
-                            <h5>Description</h5>
+                            <h5>Session Snapshot</h5>
                             <p>{{ $class->description ?? 'No description available.' }}</p>
                         </div>
 

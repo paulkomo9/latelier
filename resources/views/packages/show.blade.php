@@ -46,7 +46,7 @@
                         {{-- Optional Description --}}
                         @if (!empty($package->description))
                             <div class="mb-4">
-                                <h5>Description</h5>
+                                <h5>Package Overview</h5>
                                 <p>{{ $package->description }}</p>
                             </div>
                         @endif

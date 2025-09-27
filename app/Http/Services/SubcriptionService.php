@@ -135,7 +135,7 @@ class SubcriptionService
             //normalize var to an integer
             $var = is_null($var) ? null : (int) $var;
 
-             // ✅ Apply status & myacc filter early (before counts)
+            // ✅ Apply status & myacc filter early (before counts)
             $subscriptions = $subscriptions
                 ->when(!is_null($var) && $var !== 0, function ($query) use ($var) {
                     return $query->where('subscription_status', $var);

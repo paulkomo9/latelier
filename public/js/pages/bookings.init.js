@@ -21,6 +21,7 @@ $(function () {
 
     // load all datatable 
     var booking_status_all = 0;
+    var myacc = 0;
 
     var tableBookings = $('#datatable-bookings')
     .on('xhr.dt', function ( e, settings, json, xhr ) {
@@ -42,7 +43,7 @@ $(function () {
             "url": "/"+locale+"/bookings/list",
             "dataType": "json",
             "type": "POST",
-            "data":{ _token:  $('meta[name="csrf-token"]').attr('content'), booking_status: booking_status_all}
+            "data":{ _token:  $('meta[name="csrf-token"]').attr('content'), booking_status: booking_status_all, myacc: myacc}
         },
         "columns": [
             { "data": "id", "className": "text-center vertical-center" },
@@ -67,6 +68,7 @@ $(function () {
 
     // load all datatable for logged in user
     var booking_status_all = 0;
+    var myacc = 1;
 
     var tableMyBookings = $('#datatable-my-bookings')
     .on('xhr.dt', function ( e, settings, json, xhr ) {
@@ -88,7 +90,7 @@ $(function () {
             "url": "/"+locale+"/bookings/list",
             "dataType": "json",
             "type": "POST",
-            "data":{ _token:  $('meta[name="csrf-token"]').attr('content'), booking_status: booking_status_all}
+            "data":{ _token:  $('meta[name="csrf-token"]').attr('content'), booking_status: booking_status_all, myacc:myacc}
         },
         "columns": [
             { "data": "id", "className": "text-center vertical-center" },

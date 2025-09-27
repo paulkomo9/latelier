@@ -12,7 +12,7 @@
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">{{  __('FitBoard') }}</a></li>
+                                    <li class="breadcrumb-item"><a href="{{ route('home', ['lang' => app()->getLocale()]) }}">{{  __('FitBoard') }}</a></li>
                                     <li class="breadcrumb-item active">{{  __('My Payment History') }}</li>
                                 </ol>
                             </div>
@@ -56,8 +56,9 @@
                                     <tr>
                                         <th>{{  __('Reference') }}</th>
                                         <th>{{  __('Package') }}</th>
-                                        <th>{{  __('Amount Paid') }}</th>
+                                        <th>{{  __('Original Amount') }}</th>
                                         <th>{{  __('Fees & Tax') }}</th>
+                                        <th>{{  __('Amount Paid') }}</th>
                                         <th>{{  __('Status') }}</th>
                                         <th>{{  __('Payment Method') }}</th>
                                         <th>{{  __('Card Number') }}</th>

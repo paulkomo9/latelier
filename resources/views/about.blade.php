@@ -19,7 +19,7 @@
     <section class="ftco-section ftco-no-pt ftco-no-pb bg-light">
 			<div class="container">
 				<div class="row no-gutters">
-					<div class="col-md-5 p-md-5 img img-2 mt-5 mt-md-0" style="background-image: url('{{ asset('images/indoor-session.jpg') }}');">
+					<div class="col-md-5 p-md-5 img img-2 mt-5 mt-md-0" style="background-image: url('{{ asset('images/FB_IMG_1758543141425.jpg') }}');">
 					</div>
 					<div class="col-md-7 wrap-about py-4 py-md-5 ftco-animate">
 	          <div class="heading-section mb-5">
@@ -30,7 +30,7 @@
 	          </div>
 	          <div class="pl-md-5">
 							<p>L'Atelier Aquafitness is a high-end Aquafitness boutique Studio bringing to Dubai an amazing healthy lifestyle concept revolving around Aquabiking, Iyashi dome and Detox Juice .It is currently a Ladies only facility.</p>
-              <p>Aquabiking is one of Europe's most popular methods for keeping fit and healthy, the process is low impact high intensity workouts involving state of the art submerged bikes in a luxury indoor swimming pool.</p>
+              <p>Aquabiking is one of Europe's most popular methods for keeping fit and healthy, the process is low impact high intensity workouts involving state of the art submerged bikes in a swimming pool.</p>
 							<p>L'Atelier Aquafitness has become one of the most popular Dubai's go-to fitness locations and a permanent addition to the diaries of anyone looking to stay slim and toned.</p>
 							<!--div class="founder d-flex align-items-center mt-5">
 								<div class="img" style="background-image: url('{{ asset('images/fitness-group-girls-doing-aerobical-excercises-swimming-pool-aqua-park-sport-leisure-activities.jpg') }}');"></div>

@@ -116,6 +116,14 @@ $(function () {
         
         var emailSelector = $('#email');
         (im=new Inputmask("_@_._")).mask(emailSelector);
+
+        var is_client = 1;
+        var is_trainer = 0;
+        var is_super_admin = 0;
+
+        $('#is_client').prop("checked", is_client);
+        $('#is_trainer').prop("checked", is_trainer);
+        $('#is_super_admin').prop("checked", is_super_admin);
     });
 
 });

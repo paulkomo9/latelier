@@ -5,8 +5,8 @@
 <section class="ptb80 bg-light" id="dashboard-categories">
     <div class="container">
         <div class="section-title text-center mb-5">
-            <h2>Welcome to Your FitBoard {{ Auth::user()->firstname }}</h2>
-            <p>Quick access to everything you need</p>
+            <h2>Hey {{ Auth::user()->firstname }}! 💦 Ready to explore your FitBoard today? 📋</h2>
+            <p small>Quick access to everything you need</p>
         </div>
 
         <div class="row gy-4 justify-content-center">

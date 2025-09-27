@@ -252,6 +252,7 @@ class BookingsController extends Controller
                 $search = $request->input('search.value'); 
                 $draw = $request->input('draw');
                 $var = $request->input('booking_status');
+                $myacc = $request->boolean('myacc');
                 
                 $json_data = $this->bookingService->displayBookingsTableData(
                     $limit_data, 
@@ -261,6 +262,7 @@ class BookingsController extends Controller
                     $search, 
                     $draw, 
                     $var, 
+                    $myacc,
                     $request); 
 
             return response()->json($json_data);

@@ -95,8 +95,9 @@ $(function () {
         "columns": [
             { "data": "reference", "className": "vertical-center" },
             { "data": "package", "className": "vertical-center" },
-            { "data": "payment_amount", "className": "vertical-center" },
+            { "data": "amount", "className": "vertical-center" },
             { "data": "fees", "className": "vertical-center" },
+            { "data": "payment_amount", "className": "vertical-center" },
             { "data": "payment_status", "className": "vertical-center" },
             { "data": "payment_method",  "className": "vertical-center" },
             { "data": "last4", "className": "vertical-center" },
