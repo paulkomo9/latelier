@@ -6,7 +6,7 @@
             <div class="text-center mb-5">
                 <h2 class="text-success">🎉 Congratulations!</h2>
                 <p class="lead mt-3">
-                    Your plan has been successfully activated. You're all set to start booking your classes!
+                    Your package has been successfully activated. You're all set to start booking your classes!
                 </p>
             </div>
 

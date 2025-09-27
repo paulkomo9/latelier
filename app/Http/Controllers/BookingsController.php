@@ -69,6 +69,43 @@ class BookingsController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     */
+    public function myBookings(Request $request)
+    {
+        try {
+                // get the route name
+                $routeName = Route::currentRouteName() ?? throw new \RuntimeException("Current route name could not be determined.");
+
+                //set request-prev-route-name used when locking screen manually
+                session(['request-prev-route-name'=> $routeName]);
+
+                $isAdmin = $request->get('isAdmin');
+                $permissions = $request->get('current_module_permissions', []);
+
+            return view('bookings.user.index', [
+                'permissions' => $permissions,
+                'isAdmin' => $isAdmin
+            ]);
+
+        } catch (Throwable $e) {
+                // Custom logging to 'bookings-controller-error.log'
+                Log::build([
+                    'driver' => 'single',
+                    'path' => storage_path('logs/bookings-controller-error.log')
+                ])->error("Show User Bookings Index View Failed: " . $e->getMessage(), [
+                    'route' => Route::currentRouteName(),
+                    'user_id' => Auth::id() ?? 'N/A',
+                    'exception' => $e->getTraceAsString()
+                ]);
+
+            //show custom error 500 page 
+            return response(view('errors.500')); 
+
+        }
+    }
+
+    /**
      * Show the form for creating a new resource.
      */
     public function create()

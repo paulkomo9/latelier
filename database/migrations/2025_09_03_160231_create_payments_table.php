@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->string('transaction_id', 50)->nullable($value = true); //payment gateway transaction id
+            $table->string('payment_reference')->unique();
             $table->string('payment_gateway_currency', 5);
             $table->decimal('payment_amount', 20, 2)->default(0.00);
             $table->decimal('payment_processing_fee', 20, 2)->default(0.00); // 3% payment gateway fee

@@ -71,6 +71,7 @@
 
     <!-- Geoapify JS (Correct Browser Build) -->
     <script src="https://unpkg.com/@geoapify/geocoder-autocomplete@^2/dist/index.min.js"></script>
+    
 
    @livewireStyles
 
@@ -79,7 +80,7 @@
   <body>
 	<!-- ========== Nav Start ========== -->
        @include('layouts.nav')
-    <!-- ========== Nav End ========== -->
+  <!-- ========== Nav End ========== -->
 
   
     <!-- Start Page-content -->
@@ -197,6 +198,12 @@
 
    <!-- form mask -->
    <script src="{{ asset('libs/inputmask/inputmask.min.js') }}"></script>
+
+  
+
+
+  <!-- form mask init-->
+  <script src="{{ asset('js/pages/form-mask.init.js') }}"></script>
 
 
   <!-- common utils - functions - methods -->

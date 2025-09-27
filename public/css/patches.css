@@ -236,6 +236,16 @@ td.dtr-control::before {
 }
 
 
+/* Force word wrap in responsive child rows */
+table.dataTable.dtr-inline.collapsed > tbody > tr > td.child ul li {
+    white-space: normal !important;
+    word-break: break-word;
+    word-wrap: break-word;
+    max-width: 100%;
+}
+
+
+
 
 
 

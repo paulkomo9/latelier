@@ -62,10 +62,13 @@ class PackagesController extends Controller
                 ]);
 
             //show custom error 500 page 
-            //return response(view('errors.500')); 
+            return response(view('errors.500')); 
 
         }
     }
+
+
+    
 
     /**
      * Show the form for creating a new resource.

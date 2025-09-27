@@ -4,7 +4,7 @@
     
     <div class="container pt-4 pb-4">
         <!-- start page title -->
-            <div class="row">
+            <div class="row mb-3">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                         <h4 class="mb-sm-0 font-size-18">{{  __('Packages') }}</h4>
@@ -12,7 +12,7 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="javascript: void(0);">{{  __('FitBoard') }}</a></li>
-                                    <li class="breadcrumb-item active">{{  __('Manage Packages') }}</li>
+                                    <li class="breadcrumb-item active">{{  __('Packages') }}</li>
                                 </ol>
                             </div>
 
@@ -186,10 +186,10 @@
                                                      </div>
                                                      <div class="col-md-3">
                                                         <select name="validity_unit" id="validity_unit"  class="select2 form-control select2-no-overflow"  required  style="width:100%;">
-                                                            <option value="days" selected="selected">Day(s)</option>
-                                                            <option value="weeks">Weeks(s)</option>
-                                                            <option value="months">Months(s)</option>
-                                                             <option value="years">Years(s)</option>
+                                                            <option value="day" selected="selected">Day(s)</option>
+                                                            <option value="week">Weeks(s)</option>
+                                                            <option value="month">Months(s)</option>
+                                                             <option value="year">Years(s)</option>
                                                         </select>
 
                                                             <span class="invalid-feedback" role="alert" id="validity_unit_alert" style="display:none;">

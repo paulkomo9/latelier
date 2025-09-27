@@ -2,14 +2,14 @@
 			<div class="container">
 				<div class="row justify-content-between">
 						<div class="col d-flex align-items-center">
-							<p class="mb-0 phone"><span class="mailus">Phone no:</span> <a href="#">+971 1234 567</a> or <span class="mailus">email us:</span> <a href="#">info@latelieraquafitness.fit</a></p>
+							<p class="mb-0 phone"><span class="mailus">Phone no:</span> <a href="#">+971 568 394 141</a> or <span class="mailus">email us:</span> <a href="#">info@latelieraquafitness.fit</a></p>
 						</div>
 						<div class="col d-flex justify-content-end">
 							<div class="social-media">
 				    		<p class="mb-0 d-flex">
-				    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa-brands fa-facebook"><i class="sr-only">Facebook</i></span></a>
-				    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fab fa-twitter"><i class="sr-only">Twitter</i></span></a>
-				    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fab fa-instagram"><i class="sr-only">Instagram</i></span></a>
+				    			<a href="https://www.facebook.com/latelieraquafitness/" class="d-flex align-items-center justify-content-center" target="blank"><span class="fa-brands fa-facebook"><i class="sr-only">Facebook</i></span></a>
+				    			<a href="https://www.linkedin.com/company/l'atelier-aquafitness/?originalSubdomain=ae" class="d-flex align-items-center justify-content-center" target="blank"><span class="fab fa-linkedin"><i class="sr-only">Twitter</i></span></a>
+				    			<a href="https://www.instagram.com/latelieraquafitness_dubai/?hl=en" class="d-flex align-items-center justify-content-center" target="blank"><span class="fab fa-instagram"><i class="sr-only">Instagram</i></span></a>
 				    		</p>
 			        </div>
 						</div>

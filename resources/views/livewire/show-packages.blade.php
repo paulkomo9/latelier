@@ -2,10 +2,15 @@
     <div class="container">
         <div class="row justify-content-center pb-5 mb-3">
             <div class="col-md-7 heading-section text-center ftco-animate">
-                <span class="subheading mb-3">Price &amp; Plans</span>
-                <h2>Choose Your Perfect Plans</h2>
+                <span class="subheading mb-3">Price &amp; Packages</span>
+                <h2>Choose Your Perfect Package</h2>
             </div>
         </div>
+
+        @php
+        use Illuminate\Support\Str;
+        @endphp
+
         <div class="row">
             @forelse ($packages as $package)
                 <div class="col-md-6 col-lg-3 d-flex align-items-stretch ftco-animate">
@@ -22,9 +27,11 @@
                                 <sup>{{ $package->currency ?? 'AED' }}</sup><span class="number">{{ number_format($package->amount, 2) }}</span>
                             </span>
 
+                            
+
                             <ul class="pricing-text mb-4">
-                                <li><span class="fa fa-check mr-2"></span>{{ $package->sessions_total }} {{'Sessions'}}</li>
-                                <li><span class="fa fa-check mr-2"></span> {{'Valid for'}} {{ $package->validity }} </li>
+                                <li><span class="fa fa-check mr-2"></span>{{ $package->sessions_total }} {{ $package->sessions_total == 1 ? 'Session' : 'Sessions' }}</li>
+                                <li><span class="fa fa-check mr-2"></span> {{'Valid for'}} {{ $package->validity_quantity }} {{Str::plural($package->validity_unit, $package->validity_quantity)}}</li>
                             </ul>
 
                             <a href="{{ route('packages.show', ['package' => $package->id, 'lang' => app()->getLocale()]) }}" class="btn btn-primary px-4 py-3">Get Started</a>

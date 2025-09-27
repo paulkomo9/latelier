@@ -25,4 +25,14 @@ class PageController extends Controller
     {
         return view('contact');
     }
+
+    /**
+     * Show about aquafitness page.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function aboutAquafitness()
+    {
+        return view('aquafitness.about');
+    }
 }

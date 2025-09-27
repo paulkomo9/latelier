@@ -103,11 +103,12 @@ class SubcriptionService
      * @param string $search
      * @param int $draw
      * @param var $var
+     * @param bool $myacc
      * @param Request $request
      * 
      * @return array<string, string> $arrdataTable
      */
-    public function displaySubscriptionsTableData($limit_data, $start_data, $order_column, $order_dir, $search, $draw, $var, $request)
+    public function displaySubscriptionsTableData($limit_data, $start_data, $order_column, $order_dir, $search, $draw, $var, $myacc, $request)
     {
 
             $columns = array( 
@@ -134,10 +135,14 @@ class SubcriptionService
             //normalize var to an integer
             $var = is_null($var) ? null : (int) $var;
 
-            // ✅ Apply status filter early (before counts)
-            $subscriptions = $subscriptions->when($var !== null && $var !== 0, function ($query) use ($var) {
-                return $query->where('subscription_status', $var);
-            });
+             // ✅ Apply status & myacc filter early (before counts)
+            $subscriptions = $subscriptions
+                ->when(!is_null($var) && $var !== 0, function ($query) use ($var) {
+                    return $query->where('subscription_status', $var);
+                })
+                ->when($myacc, function ($query) use ($user) {
+                    return $query->where('user_id', $user->id);
+                });
 
             // Fetch the totalData data after applying all scope filters
             $totalData = $subscriptions->count();

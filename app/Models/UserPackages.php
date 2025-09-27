@@ -74,9 +74,9 @@ class UserPackages extends Model
     public function calculateExpiry(): Carbon
     {
         return match($this->validity_unit) {
-            'days' => $this->purchased_at->copy()->addDays($this->validity_quantity),
-            'weeks' => $this->purchased_at->copy()->addWeeks($this->validity_quantity),
-            'months' => $this->purchased_at->copy()->addMonths($this->validity_quantity),
+            'day' => $this->purchased_at->copy()->addDays($this->validity_quantity),
+            'week' => $this->purchased_at->copy()->addWeeks($this->validity_quantity),
+            'month' => $this->purchased_at->copy()->addMonths($this->validity_quantity),
             default => $this->purchased_at,
         };
     }

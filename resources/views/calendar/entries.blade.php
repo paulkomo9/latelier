@@ -4,7 +4,7 @@
     
     <div class="container pt-4 pb-4">
          <!-- start page title -->
-            <div class="row">
+            <div class="row mb-3">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                         <h4 class="mb-sm-0 font-size-18">{{  __('Calendar Entries') }}</h4>
@@ -12,7 +12,7 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="javascript: void(0);">{{  __('FitBoard') }}</a></li>
-                                    <li class="breadcrumb-item active">{{  __('Manage Calendar Entries') }}</li>
+                                    <li class="breadcrumb-item active">{{  __('Calendar Entries') }}</li>
                                 </ol>
                             </div>
 

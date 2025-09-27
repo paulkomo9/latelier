@@ -6,26 +6,25 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
-use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Carbon\Carbon;
 use Auth;
 use Throwable;
-use App\Http\Services\SubcriptionService;
+use App\Http\Services\PaymentService;
 
-class SubscriptionsController extends Controller
+class PaymentsController extends Controller
 {
 
-    protected SubcriptionService $subcriptionService;
+    protected PaymentService $paymentService;
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct(SubcriptionService $subcriptionService)
+    public function __construct(PaymentService $paymentService)
     {
         $this->middleware(['guest.lang','check.access']);
-        $this->subcriptionService = $subcriptionService;
+        $this->paymentService = $paymentService;
     }
 
     /**
@@ -33,7 +32,7 @@ class SubscriptionsController extends Controller
      */
     public function index(Request $request)
     {
-        try {
+         try {
                 // get the route name
                 $routeName = Route::currentRouteName() ?? throw new \RuntimeException("Current route name could not be determined.");
 
@@ -43,17 +42,17 @@ class SubscriptionsController extends Controller
                 $isAdmin = $request->get('isAdmin');
                 $permissions = $request->get('current_module_permissions', []);
 
-            return view('subscriptions.index', [
+            return view('payments.index', [
                 'permissions' => $permissions,
                 'isAdmin' => $isAdmin
             ]);
 
         } catch (Throwable $e) {
-                // Custom logging to 'subscriptions-controller-error.log'
+                // Custom logging to 'payments-controller-error.log'
                 Log::build([
                     'driver' => 'single',
-                    'path' => storage_path('logs/subscriptions-controller-error.log')
-                ])->error("Subscriptions Index View Failed: " . $e->getMessage(), [
+                    'path' => storage_path('logs/payments-controller-error.log')
+                ])->error("Payments Index View Failed: " . $e->getMessage(), [
                     'route' => Route::currentRouteName(),
                     'user_id' => Auth::id() ?? 'N/A',
                     'exception' => $e->getTraceAsString()
@@ -65,12 +64,14 @@ class SubscriptionsController extends Controller
         }
     }
 
+
+
     /**
      * Display a listing of the resource.
      */
-    public function mySubscriptions(Request $request)
+    public function myPayments(Request $request)
     {
-        try {
+         try {
                 // get the route name
                 $routeName = Route::currentRouteName() ?? throw new \RuntimeException("Current route name could not be determined.");
 
@@ -80,17 +81,17 @@ class SubscriptionsController extends Controller
                 $isAdmin = $request->get('isAdmin');
                 $permissions = $request->get('current_module_permissions', []);
 
-            return view('subscriptions.user.index', [
+            return view('payments.user.index', [
                 'permissions' => $permissions,
                 'isAdmin' => $isAdmin
             ]);
 
         } catch (Throwable $e) {
-                // Custom logging to 'subscriptions-controller-error.log'
+                // Custom logging to 'payments-controller-error.log'
                 Log::build([
                     'driver' => 'single',
-                    'path' => storage_path('logs/subscriptions-controller-error.log')
-                ])->error("My Subscriptions Index View Failed: " . $e->getMessage(), [
+                    'path' => storage_path('logs/payments-controller-error.log')
+                ])->error("My Payments View Failed: " . $e->getMessage(), [
                     'route' => Route::currentRouteName(),
                     'user_id' => Auth::id() ?? 'N/A',
                     'exception' => $e->getTraceAsString()
@@ -150,12 +151,11 @@ class SubscriptionsController extends Controller
         //
     }
 
-      
     /**
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function displaySubscriptions(Request $request)
+    public function displayPayments(Request $request)
     {
         try {
                 $limit_data = $request->input('length');
@@ -164,10 +164,11 @@ class SubscriptionsController extends Controller
                 $order_dir = $request->input('order.0.dir');
                 $search = $request->input('search.value'); 
                 $draw = $request->input('draw');
-                $var = $request->input('subscription_status');
+                $var = $request->input('payment_status');
                 $myacc = $request->boolean('myacc');
+
                 
-                $json_data = $this->subcriptionService->displaySubscriptionsTableData(
+                $json_data = $this->paymentService->displayPaymentsTableData(
                     $limit_data, 
                     $start_data, 
                     $order_column, 
@@ -181,11 +182,11 @@ class SubscriptionsController extends Controller
             return response()->json($json_data);
 
         } catch (Throwable $e) {
-                // Custom logging to 'subscriptions-controller-error.log'
+                // Custom logging to 'payments-controller-error.log'
                 Log::build([
                     'driver' => 'single',
-                    'path' => storage_path('logs/subscriptions-controller-error.log')
-                ])->error("Display Subcriptions Failed: " . $e->getMessage(), [
+                    'path' => storage_path('logs/payments-controller-error.log')
+                ])->error("Display Payments Failed: " . $e->getMessage(), [
                     'route' => Route::currentRouteName(),
                     'user_id' => Auth::id() ?? 'N/A',
                     'request'=> json_encode($request->all()),

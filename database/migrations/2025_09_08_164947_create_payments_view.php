@@ -16,6 +16,7 @@ return new class extends Migration
             SELECT
                 payments.id,
                 payments.transaction_id,
+                payments.payment_reference,
                 payments.payment_gateway_currency,
                 payments.payment_amount,
                 payments.payment_processing_fee,
@@ -36,13 +37,14 @@ return new class extends Migration
                 payments.deleted_by,
                 payments.paid_by,
                 packages.package,
+                packages.amount,
 
                 -- Deleted by user full name
                 CONCAT_WS(' ', deleter.firstname, deleter.lastname) AS deleted_by_name,
 
                 -- Workflow status for payment
                 workflow_status.status_name AS payment_status_name,
-                workflow_status.css AS payment_status_css
+                workflow_status.css AS payment_status_name_css
 
             FROM payments
 

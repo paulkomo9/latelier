@@ -3,16 +3,17 @@
 @section('content')
     
     <div class="container pt-4 pb-4">
+
          <!-- start page title -->
             <div class="row mb-3">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0 font-size-18">{{  __('Schedules') }}</h4>
+                        <h4 class="mb-sm-0 font-size-18">{{  __('My Payment History') }}</h4>
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="javascript: void(0);">{{  __('FitBoard') }}</a></li>
-                                    <li class="breadcrumb-item active">{{  __('Schedules') }}</li>
+                                    <li class="breadcrumb-item active">{{  __('My Payment History') }}</li>
                                 </ol>
                             </div>
 
@@ -23,10 +24,10 @@
 
         <div class="row">
             <div class="col-lg-6">
-                <div class="text-left mb-3">
-                    <button type="button" class="btn btn-primary waves-effect waves-light {{ !$isAdmin && (!isset($permissions['add']) || !$permissions['add']) ? 'disabled' : '' }}" data-bs-toggle="modal" data-bs-target="#schedulesModal" id="createNewSchedule">
-                        <x-lucide-calendar-clock   class="font-size-16 align-middle me-2" style="width: 1.5em; height: 1.5em;"/>{{  __('Add New Schedule') }}
-                    </button>    
+                <div class="text-left mb-2">
+                    <!--button type="button" class="btn btn-primary waves-effect waves-light {{ !$isAdmin && (!isset($permissions['add']) || !$permissions['add']) ? 'disabled' : '' }}" data-bs-toggle="modal" data-bs-target="#schedulesModal" id="createNewSchedule">
+                        <x-lucide-calendar-clock   class="font-size-16 align-middle me-2" style="width: 1.5em; height: 1.5em;"/>{{  __('Add New Subscription') }}
+                    </button-->    
                 </div>
             </div>
         </div>
@@ -35,13 +36,13 @@
             <div class="col-lg-6">
                 <div class="alert alert-success alert-dismissible fade show text-center" role="alert" id="notification-success" style="display:none;">
                     <i class="mdi mdi-check-all me-2"></i>
-                        <span id="notification-success-message">Schedule added.</span> 
+                        <span id="notification-success-message">Payment added.</span> 
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
 
                 <div class="alert alert-warning alert-dismissible fade show text-center" role="alert" id="notification-warning" style="display:none;">
                     <i class="mdi mdi-alert-outline me-2"></i>
-                                                  Could not add schedule!
+                                                  Could not add payment!
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             </div>
@@ -50,26 +51,19 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <table id="datatable-schedules" class="table table-bordered dt-responsive  nowrap w-100">
+                        <table id="datatable-my-payments" class="table table-bordered dt-responsive  nowrap w-100">
                                 <thead>
                                     <tr>
-                                        <th>{{  __('#') }}</th>
-                                        <th>{{  __('Title') }}</th>
-                                        <th>{{  __('Start Date & Time') }}</th>
-                                        <th>{{  __('End  Date & Time') }}</th>
+                                        <th>{{  __('Reference') }}</th>
+                                        <th>{{  __('Package') }}</th>
+                                        <th>{{  __('Amount Paid') }}</th>
+                                        <th>{{  __('Fees & Tax') }}</th>
                                         <th>{{  __('Status') }}</th>
-                                        <th>{{  __('Image') }}</th>
-                                        <th>{{  __('Estimated Time') }}</th>
-                                        <th>{{  __('Slots') }}</th>
-                                        <!--th>{{  __('Slots Taken') }}</th-->
-                                        <th>{{  __('Trainer') }}</th>
-                                        <th>{{  __('Recurring') }}</th>
-                                        <th>{{  __('Location') }}</th>
-                                        <th>{{  __('Description') }}</th>
-                                        <th>{{  __('Created By') }}</th>
-                                        <th>{{  __('Created At') }}</th>
-                                        <th>{{  __('Updated By') }}</th>
-                                        <th>{{  __('Updated At') }}</th>
+                                        <th>{{  __('Payment Method') }}</th>
+                                        <th>{{  __('Card Number') }}</th>
+                                        <th>{{  __('Card Type') }}</th>
+                                        <th>{{  __('Payment Started') }}</th>
+                                        <th>{{  __('Payment Authorized') }}</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -132,7 +126,7 @@
                                                         </div>
                                                     </div>
                                                    
-                                                    <div class="col-md-5">
+                                                    <div class="col-md-5 mb-3">
                                                         <div class="row">
                                                             <!-- Starts -->
                                                                 <div class="col-6">
@@ -164,7 +158,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-md-2">
+                                                    <div class="col-2">
                                                         <label for="recurring_status" class="form-label">{{ __('Recurring') }}</label>
                                                             <select name="recurring_status" id="recurring_status"  class="select2 form-control select2-no-overflow"  required  style="width:100%;"></select>
 
@@ -240,18 +234,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
-                                                <div class="row mb-3">
-                                                    <div class="upload-box" id="singleUpload">
-                                                        <input type="file" id="singleImageInput" name="image" accept="image/*" class="hidden-input">
-                                                            {{ __('Drop an image here or click to upload schedule image') }}
-                                                                <img id="singlePreview" class="img-thumbnail mt-2" style="ddisplay: none; max-width: 600px; max-height: 200px; object-fit: contain;">
-                                                    </div>
-                                                    <span class="invalid-feedback" role="alert" id="singlePreview_alert" style="display:none;">
-                                                        <strong></strong>
-                                                    </span>
-                                                                            
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -262,7 +244,7 @@
                                         {{ __('Close') }}
                                     </button>
                                     <button type="button" class="btn btn-primary" id="saveBtnSchedule" value="create"> <x-elusive-plus class="text-success font-size-12" style="width: 0.8em; height: 0.8em;" /> 
-                                        <span id="saveBtnScheduleName">{{ __('Add Schedule') }}</span><i class="fa fa-spinner fa-spin font-size-20 align-middle me-2" style="display:none;"></i>
+                                        <span id="saveBtnScheduleName">{{ __('Add Session') }}</span><i class="fa fa-spinner fa-spin font-size-20 align-middle me-2" style="display:none;"></i>
                                     </button>
                                 </div>
                             </form>
@@ -301,7 +283,7 @@
                                             </button>
 
                                             <button type="button" class="btn bg-danger text-white" id="deleteBtnSchedule" value="delete"><x-uiw-delete class="text-white font-size-20 me-2" style="width: 1em; height: 1em;" /> 
-                                                {{ __('Deactivate Schedule') }} 
+                                                {{ __('Deactivate Session') }} 
                                                    <i class="fa fa-spinner fa-spin font-size-20 align-middle me-2" style="display:none;"></i>
                                             </button>
                                         </div>
@@ -311,7 +293,7 @@
                     </div>
                 </div>
             </div>
-        <!-- Delete Package Modal Ends Here-->
+        <!-- Delete Company Modal Ends Here-->
 
     </div>
 
@@ -319,13 +301,11 @@
         window.appLocale = "{{ app()->getLocale() }}";
     </script>
 
+
     <script>
-        window.geoapifyApiKey = "{{ config('services.geo.apify_key') }}";
+       window.uniquePageName = "payments"; // Unique ID for this Blade file needed to tabs
     </script>
-    
-    <script>
-       window.uniquePageName = "schedules"; // Unique ID for this Blade file needed to tabs
-    </script>
+
     <script>
         window.translations = {
             zeroRecordsMessage: @json(__('messages.zero_records')),
@@ -356,16 +336,15 @@
      <script>
 
         const TRANSLATIONS = {
-            addNewSchedule: @json(__('Add New Schedule')),
-            editSchedule: @json(__('Edit Schedule')),
-            addSchedule: @json(__('Add Schedule')),
-            updateSchedule: @json(__('Update Schedule')),
-            deactivateSchedule: @json(__('Deactivate Schedule')),
-            confirmDeactivate: @json(__('Are you sure you want to deactivate schedule:')),
+            addNewSubcription: @json(__('Add New Subscription')),
+            editSubscription: @json(__('Edit Subscription')),
+            addSubcription: @json(__('Add Subcription')),
+            updateSubscription: @json(__('Update Subscription')),
+            deactivateSubscription: @json(__('Deactivate Subscription')),
+            confirmDeactivate: @json(__('Are you sure you want to deactivate subscription:')),
             recordLocked: @json(__('Record is locked. Contact the Systems Administrator.')),
             error: @json(__('Error')),
             choose: @json(__('Select..')),
-            search: @json(__('Search by building, street or landmark')),
             // Add as needed...
         };
     </script>
@@ -374,8 +353,8 @@
     <script src="{{ asset('js/pages/tabs.init.js') }}"></script>
 
 
-    <!-- schedules init -->
-   <script src="{{ asset('js/pages/schedules.init.js') }}"></script>
+    <!-- payments init -->
+   <script src="{{ asset('js/pages/payments.init.js') }}"></script>
 
    <!-- spinner init -->
    <script src="{{ asset('js/pages/spinner.init.js') }}"></script>

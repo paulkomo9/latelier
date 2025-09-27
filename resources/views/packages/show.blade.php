@@ -54,11 +54,11 @@
                         {{-- Actions --}}
                         <div class="d-flex gap-2 align-items-center mt-4">
                             <a href="{{ route('checkout.page', ['type' => 'package', 'id' => $package->id, 'lang' => app()->getLocale()]) }}" class="btn btn-success">
-                                <i class="fa fa-shopping-cart me-1"></i> Subscribe to Plan
+                                <i class="fa fa-shopping-cart me-1"></i> Subscribe
                             </a>
 
                             <a href="{{ route('packages.explore', ['lang' => app()->getLocale()]) }}" class="btn btn-secondary">
-                                <i class="fa fa-arrow-left me-1"></i> Back to Plans
+                                <i class="fa fa-arrow-left me-1"></i> Back to Packages
                             </a>
                         </div>
 

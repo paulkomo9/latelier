@@ -5,7 +5,7 @@
     <div class="container pt-4 pb-4">
 
         <!-- start page title -->
-            <div class="row">
+            <div class="row mb-3">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                         <h4 class="mb-sm-0 font-size-18">{{  __('Users') }}</h4>
@@ -13,7 +13,7 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="javascript: void(0);">{{  __('FitBoard') }}</a></li>
-                                    <li class="breadcrumb-item active">{{  __('Manage Users') }}</li>
+                                    <li class="breadcrumb-item active">{{  __('Users') }}</li>
                                 </ol>
                             </div>
 
@@ -79,25 +79,21 @@
         </div>
 
         <!-- Create Update Modal -->
-            <div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="schedulesModal" tabindex="-1" aria-labelledby="schedulesModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
+            <div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="usersModal" tabindex="-1" aria-labelledby="usersModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header bg-primary">
-                            <h4 class="modal-title text-white" id="modalSchedulesHeading"></h4>
+                            <h4 class="modal-title text-white" id="modalUsersHeading"></h4>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
 
-                        <div class="alert alert-danger print-error-msg" role="alert" id="schedule-modal-warning" style="display:none">
+                        <div class="alert alert-danger print-error-msg" role="alert" id="user-modal-warning" style="display:none">
                             <ul></ul>
                         </div>
                                 
                         <!-- form starts here -->
-                            <form id="scheduleForm" name="scheduleForm" class="form-horizontal">
-                                <input type="hidden" name="schedule_id" id="schedule_id" class="form-control" value="">
-                                <input type="hidden" name="location_latitude" id="location_latitude" class="form-control" value="">
-                                <input type="hidden" name="location_longitude" id="location_longitude" class="form-control" value="">
-                                <input type="hidden" name="location_timezone" id="location_timezone" class="form-control" value="">
-                                <input type="hidden" name="location_address" id="location_address" class="form-control" value="">
+                            <form id="userForm" name="userForm" class="form-horizontal">
+                                <input type="hidden" name="user_id" id="schedule_id" class="form-control" value="">
                                 <input type="hidden" name="created_by_code" id="created_by_code" class="form-control" value="">
 
                                 <div class="row">
@@ -106,136 +102,69 @@
                                             <div class="card-body">
 
                                                 <div class="row mb-3">
-                                                    <label  class="form-label">{{ __('Tag Location') }}</label>
 
-                                                        <div id="autocomplete" class="autocomplete-container col-md-12"></div>
+                                                   <label for="firstname" class="col-md-4 col-form-label">{{ __('First Name') }}</label>
+                                                    <div class="col-md-8">
+                                                           <input name="firstname" id="firstname" class="form-control" autocomplete="off" required autofocus>
 
-                                                            <span class="invalid-feedback align-right" role="alert" id="location_latitude_alert" style="display:none;">
+                                                            <span class="invalid-feedback" role="alert" id="firstname_alert" style="display:none;">
                                                                 <strong></strong>
                                                             </span> 
+                                                    </div>
                                                 </div>
 
                                                 <div class="row mb-3">
 
-                                                    <div class="col-md-5">
-                                                        <div class="mb-3">
-                                                            <label for="title" class="form-label">{{ __('Title') }}</label>
-                                                                <input type="text" class="form-control" id="title" name="title" placeholder="{{ __('e.g Aquafit Signature Business Bay') }}" required autocomplete="off">
+                                                   <label for="lastname" class="col-md-4 col-form-label">{{ __('Last Name') }}</label>
+                                                    <div class="col-md-8">
+                                                           <input name="lastname" id="lastname" class="form-control" autocomplete="off" required>
 
-                                                                    <span class="invalid-feedback" role="alert" id="title_alert" style="display:none;">
-                                                                        <strong></strong>
-                                                                    </span>
-                                                        </div>
-                                                    </div>
-                                                   
-                                                    <div class="col-md-5 mb-3">
-                                                        <div class="row">
-                                                            <!-- Starts -->
-                                                                <div class="col-6">
-                                                                    <label for="starts_date" class="form-label">{{ __('Starts') }}</label>
-                                                                        <input class="form-control input-mask" 
-                                                                            name="starts_date" type="date" 
-                                                                            id="starts_date" 
-                                                                            value="{{ old('starts_date') }}"
-                                                                            required autocomplete="off">
-
-                                                                            <span class="invalid-feedback" role="alert" id="starts_date_alert" style="display:none;">
-                                                                                <strong></strong>
-                                                                            </span>
-                                                                </div>
-
-                                                            <!-- Ends -->
-                                                                <div class="col-6">
-                                                                    <label for="ends_date" class="form-label">{{ __('Ends') }}</label>
-                                                                        <input class="form-control input-mask" 
-                                                                            name="ends_date" type="date" 
-                                                                            id="ends_date" 
-                                                                            value="{{ old('ends_date') }}"
-                                                                            autocomplete="off">
-
-                                                                            <span class="invalid-feedback" role="alert" id="ends_date_alert" style="display:none;">
-                                                                                <strong></strong>
-                                                                            </span>
-                                                                </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-2">
-                                                        <label for="recurring_status" class="form-label">{{ __('Recurring') }}</label>
-                                                            <select name="recurring_status" id="recurring_status"  class="select2 form-control select2-no-overflow"  required  style="width:100%;"></select>
-
-                                                            <span class="invalid-feedback" role="alert" id="recurring_status_alert" style="display:none;">
+                                                            <span class="invalid-feedback" role="alert" id="lastname_alert" style="display:none;">
                                                                 <strong></strong>
                                                             </span> 
                                                     </div>
-
-                                                    
-                                                     
                                                 </div>
 
                                                 <div class="row mb-3">
-                                                    <div class="col-md-6 mb-3">
-                                                        <div class="row">
-                                                            <!-- Starts -->
-                                                                <div class="col-6">
-                                                                    <label for="start_time" class="form-label">{{ __('Start Time') }}</label>
-                                                                       <input id="start_time" type="time" class="form-control" name="start_time" value="00:00" required>
 
-                                                                                    <span class="invalid-feedback" role="alert" id="start_time_alert" style="display:none;">
-                                                                                        <strong></strong>
-                                                                                    </span> 
-                                                                </div>
+                                                   <label for="email" class="col-md-4 col-form-label">{{ __('Email Address') }}</label>
+                                                    <div class="col-md-8">
+                                                           <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autocomplete="off">
 
-                                                            <!-- Ends -->
-                                                                <div class="col-6">
-                                                                        <label for="end_time" class="form-label">{{ __('End Time') }}</label>
-                                                                            <input id="end_time" type="time" class="form-control" name="end_time" value="23:59" required>
 
-                                                                                    <span class="invalid-feedback" role="alert" id="end_time_alert" style="display:none;">
-                                                                                        <strong></strong>
-                                                                                    </span> 
-                                                                </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6 mb-3">
-                                                        <div class="row">
-                                                            <!-- Starts -->
-                                                                <div class="col-3">
-                                                                    <label for="slots" class="form-label">{{ __('Slots') }}</label>
-                                                                       <input type="number" id="slots" name="slots"
-                                                                                                                class="form-control input-mask text-start"
-                                                                                                                min="0" value="1" max="9">
-
-                                                                                    <span class="invalid-feedback" role="alert" id="slots_alert" style="display:none;">
-                                                                                        <strong></strong>
-                                                                                    </span> 
-                                                                </div>
-
-                                                            <!-- Ends -->
-                                                                <div class="col-9">
-                                                                        <label for="trainer_id" class="form-label">{{ __('Trainer') }}</label>
-                                                                           <select name="trainer_id" id="trainer_id"  class="select2 form-control responsibility-id select2"  required  style="width:100%;"></select>
-                                                                                    <span class="invalid-feedback" role="alert" id="trainer_id_alert" style="display:none;">
-                                                                                        <strong></strong>
-                                                                                    </span> 
-                                                                </div>
-                                                        </div>
-                                                    </div>
-                                                     
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="form-floating mb-3">
-                                                            <textarea id="description" name="description" class="form-control" class="form-control" placeholder="" style="height: 60px"></textarea>
-                                                            <label for="description">{{ __('Description') }}</label>
-
-                                                            <span class="invalid-feedback" role="alert" id="description_alert" style="display:none;">
+                                                            <span class="invalid-feedback" role="alert" id="email_alert" style="display:none;">
                                                                 <strong></strong>
-                                                            </span>
+                                                            </span> 
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mb-3">
+                                                    <div class="col-md-4">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" name="is_client" id="is_client" required>
+                                                            <label class="form-check-label" for="is_client">
+                                                                Is Client?
+                                                             </label>
+                                                        </div>
+                                                    </div>
+                                                     <div class="col-md-4">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" name="is_trainer" id="is_trainer" required>
+                                                            <label class="form-check-label" for="is_client">
+                                                                Is Trainer?
+                                                             </label>
+                                                        </div>
+                                                    </div>
+                                                     <div class="col-md-4">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" name="is_super_admin" id="is_super_admin" required>
+                                                            <label class="form-check-label" for="is_super_admin">
+                                                                Is Admin?
+                                                             </label>
                                                         </div>
                                                     </div>
                                                 </div>
+
                                             </div>
                                         </div>
                                     </div>
@@ -245,8 +174,8 @@
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><x-elusive-remove class="text-warning font-size-12" style="width: 0.8em; height: 0.8em;" /> 
                                         {{ __('Close') }}
                                     </button>
-                                    <button type="button" class="btn btn-primary" id="saveBtnSchedule" value="create"> <x-elusive-plus class="text-success font-size-12" style="width: 0.8em; height: 0.8em;" /> 
-                                        <span id="saveBtnScheduleName">{{ __('Add Session') }}</span><i class="fa fa-spinner fa-spin font-size-20 align-middle me-2" style="display:none;"></i>
+                                    <button type="button" class="btn btn-primary" id="saveBtnUser" value="create"> <x-elusive-plus class="text-success font-size-12" style="width: 0.8em; height: 0.8em;" /> 
+                                        <span id="saveBtnUserName">{{ __('Add User') }}</span><i class="fa fa-spinner fa-spin font-size-20 align-middle me-2" style="display:none;"></i>
                                     </button>
                                 </div>
                             </form>
@@ -256,7 +185,7 @@
             </div>
         <!-- Create Update Modal ends here -->
 
-        <!-- Delete Schedule Modal -->
+        <!-- Delete User Modal -->
             <div class="modal fade" id="deleteScheduleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="deleteScheduleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
@@ -295,7 +224,7 @@
                     </div>
                 </div>
             </div>
-        <!-- Delete Company Modal Ends Here-->
+        <!-- Delete User Modal Ends Here-->
 
     </div>
 

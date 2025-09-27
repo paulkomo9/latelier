@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row justify-content-center mb-4">
             <div class="col-md-10">
-                <h2 class="mb-0">Checkout {{ $type === 'package' ? 'Package' : 'Session' }}</h2>
+                <h2 class="mb-0">Checkout</h2>
             </div>
         </div>
 
@@ -52,6 +52,13 @@
                             <i class="fa fa-credit-card me-1"></i>
                             Pay {{ $item->currency ?? 'AED' }} {{ number_format($item->total_amount, 2) }}
                         </button>
+                        <div style="text-align: center; margin-top: 15px;">
+                            <p style="font-size: 14px; color: #444;">
+                                <span style="color: green;">🔒</span>PCI-compliant & SSL encrypted
+                            </p>
+                            <p class="text-muted small" >Powered By</p>
+                            <img src="{{ asset('images/stripe/Stripe_Logo_1.png') }}" alt="Stripe Logo" style="height: 40px;">
+                        </div>
                     </form>
                 </div>
             </div>

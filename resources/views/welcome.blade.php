@@ -10,8 +10,8 @@
 		          <div class="col-md-7 ftco-animate">
 		          	<div class="text w-100">
 		          		<h2 class="fw-bold text-white display-5 text-uppercase">Welcome to Latalier Aquafitness</h2>
-			            <h1 class="mb-4 fw-bold text-white display-5">Get in shape faster, live your happy life</h1>
-			            <p><a href="#" class="btn btn-primary">Learn more</a> <a href="#" class="btn btn-white">Contact us</a></p>
+			            <h1 class="mb-4 fw-bold text-white display-5">Wellness Flows Naturally with Aquafitness.</h1>
+			            <p><a href="{{ route('sessions.explore', ['lang' => app()->getLocale()]) }}" class="btn btn-primary">Book a Session</a> <a href="{{ route('aquafitness.about', ['lang' => app()->getLocale()]) }}" class="btn btn-white">See the Benefits</a></p>
 		            </div>
 		          </div>
 		        </div>
@@ -24,9 +24,9 @@
 	          <div class="row no-gutters slider-text align-items-center">
 		          <div class="col-md-7 ftco-animate">
 		          	<div class="text w-100">
-		          		<h2 class="fw-bold text-success display-5 text-uppercase">A Fresh approach to healthy life</h2>
-			            <h1 class="mb-4 fw-bold text-white display-5">Unlock your potential with good nutrition</h1>
-			            <p><a href="#" class="btn btn-primary">Learn more</a> <a href="#" class="btn btn-white">Contact us</a></p>
+		          		<h2 class="fw-bold text-white display-5 text-uppercase">Dive Into Wellness with Aquafitness!</h2>
+			            <h1 class="mb-4 fw-bold text-white display-5">Move Better. Feel Better. Aqua Better</h1>
+			            <p><a href="{{ route('sessions.explore', ['lang' => app()->getLocale()]) }}" class="btn btn-primary">Book a Session</a> <a href="{{ route('aquafitness.about', ['lang' => app()->getLocale()]) }}" class="btn btn-white">See the Benefits</a></p>
 		            </div>
 		          </div>
 		        </div>
@@ -39,9 +39,9 @@
 	          <div class="row no-gutters slider-text align-items-center justify-content-end">
 		          <div class="col-md-6 ftco-animate">
 		          	<div class="text w-100">
-		          		<h2 class="w-bold text-white display-5 text-uppercase">Welcome Latelier Aquafitness</h2>
-			            <h1 class="mb-4 fw-bold text-white display-5">You can transform health through habit change</h1>
-			            <p><a href="#" class="btn btn-primary">Learn more</a> <a href="#" class="btn btn-white">Contact us</a></p>
+		          		<h2 class="fw-bold text-white display-5 text-uppercase">Rediscover Health — The Natural Aquafitness Way.</h2>
+			            <h1 class="mb-4 fw-bold text-white display-5">Strength. Balance. Wellness. All in Water.</h1>
+			            <p><a href="{{ route('sessions.explore', ['lang' => app()->getLocale()]) }}" class="btn btn-primary">Book a Session</a> <a href="{{ route('aquafitness.about', ['lang' => app()->getLocale()]) }}" class="btn btn-white">See the Benefits</a></p>
 		            </div>
 		          </div>
 		        </div>
@@ -63,7 +63,7 @@
 	          <div class="heading-section mb-5">
 	          	<div class="pl-md-5">
 		          	<span class="subheading mb-2">Welcome to Latelier Aquafitness</span>
-		            <h2 class="mb-2">Hello! Aquafitness is a natural way of improving your health</h2>
+		            <h2 class="mb-2">Dive Into Wellness with Aquafitness!</h2>
 	            </div>
 	          </div>
 	          <div class="pl-md-5">
@@ -160,62 +160,9 @@
 			</div>
     </section>
 
-	<section class="ftco-section">
-    	<div class="container">
-    		<div class="row justify-content-center pb-5 mb-3">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-          	<span class="subheading mb-3">Why Us</span>
-            <h2>Why Choose L'Atelier Aquafitness?</h2>
-          </div>
-        </div>
-    		<div class="row">
-          <div class="col-md-3 d-flex services align-self-stretch px-4 ftco-animate">
-            <div class="d-block text-center">
-              <div class="icon d-flex justify-content-center align-items-center">
-            		<span class="flaticon-first"></span>
-              </div>
-              <div class="media-body p-2 mt-3">
-                <h3 class="heading">High-End Experience</h3>
-                <p>L'Atelier Aquafitness is a high end aqua fitness boutique bringing to Dubai a new and amazing fitness concept known in Europe as Aquabiking.</p>
-              </div>
-            </div>      
-          </div>
-          <div class="col-md-3 d-flex services align-self-stretch px-4 ftco-animate">
-            <div class="d-block text-center">
-              <div class="icon d-flex justify-content-center align-items-center">
-            		<span class="flaticon-female"></span>
-              </div>
-              <div class="media-body p-2 mt-3">
-                <h3 class="heading">Ladies Only</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-              </div>
-            </div>    
-          </div>
-          <div class="col-md-3 d-flex services align-self-stretch px-4 ftco-animate">
-            <div class="d-block text-center">
-              <div class="icon d-flex justify-content-center align-items-center">
-            		<span class="flaticon-diet"></span>
-              </div>
-              <div class="media-body p-2 mt-3">
-                <h3 class="heading">Low-Impact, High Intensity Workouts</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-              </div>
-            </div>      
-          </div>
-          <div class="col-md-3 d-flex services align-self-stretch px-4 ftco-animate">
-            <div class="d-block text-center">
-              <div class="icon d-flex justify-content-center align-items-center">
-            		<span class="flaticon-diet-1"></span>
-              </div>
-              <div class="media-body p-2 mt-3">
-                <h3 class="heading">Detoxification and Regeneration</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-              </div>
-            </div>      
-          </div>
-        </div>
-    	</div>
-    </section>
+	<!-- ========== Why Us ========== -->
+       @include('layouts.why')
+    <!-- ========== Why Us End ========== -->
 
 
     @livewire('show-packages')

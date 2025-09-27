@@ -349,7 +349,7 @@ class PackageService
                         $nestedData['package'] = $package->package;
                         $nestedData['description'] = $package->description;
                         $nestedData['sessions_total'] = $package->sessions_total;
-                        $nestedData['validity'] = $package->validity;
+                        $nestedData['validity'] = $package->validity_quantity." ".Str::plural($package->validity_unit, $package->validity_quantity);
                         $nestedData['amount'] = $package->currency ." ". $amount;
                         
                         // Display tax as either "AED 5.00" or "5%"

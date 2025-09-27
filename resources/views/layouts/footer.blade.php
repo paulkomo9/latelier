@@ -1,4 +1,4 @@
-<footer class="footer">
+    <footer class="footer">
 			<div class="container">
 				<div class="row justify-content-center">
 					<div class="col-10 col-lg-6">
@@ -17,7 +17,7 @@
 						<div class="row">
 							<div class="col-md-12 col-lg-8 mb-md-0 mb-4">
 								<h2 class="footer-heading"><a href="#" class="logo">L'Atelier<span>Aqua Fitness</span></a></h2>
-								<p>L'Atelier Aquafitness is a high-end Aquafitness boutique Studio bringing to Dubai an amazing healthy lifestyle concept revolving around Aquabiking, Iyashi dome and Detox Juice .It is currently a Ladies only facility.</p>
+								<p>L'Atelier Aquafitness is a high-end aqua fitness boutique Studio bringing to Dubai an amazing healthy lifestyle concept revolving around Aquabiking, Iyashi dome and Detox Juice .It is currently a Ladies only facility.</p>
 								<!--a href="#">read more <span class="ion-ios-arrow-round-forward"></span></a-->
 							</div>
 						</div>
@@ -25,12 +25,12 @@
 					<div class="col-md-8 col-lg-7">
 						<div class="row">
 							<div class="col-md-3 mb-md-0 mb-4 border-left">
-								<h2 class="footer-heading">Services</h2>
+								<h2 class="footer-heading">Programs</h2>
 								<ul class="list-unstyled">
-		              <li><a href="#" class="py-1 d-block">Balance Body</a></li>
-		              <li><a href="#" class="py-1 d-block">Physical Activity</a></li>
-		              <li><a href="#" class="py-1 d-block">Fitness Program</a></li>
-		              <li><a href="#" class="py-1 d-block">Healthy Food</a></li>
+		              <li><a href="#" class="py-1 d-block">Aqua Splash</a></li>
+		              <li><a href="#" class="py-1 d-block">Aqua Hydrospin</a></li>
+		              <li><a href="#" class="py-1 d-block">Aqua Fusion</a></li>
+		              <li><a href="#" class="py-1 d-block">Aqua Hiit</a></li>
 		            </ul>
 							</div>
 							<div class="col-md-3 mb-md-0 mb-4 border-left">
@@ -38,26 +38,25 @@
 								<ul class="list-unstyled">
 		              <li><a href="#" class="py-1 d-block">Apparel</a></li>
 		              <li><a href="#" class="py-1 d-block">Team</a></li>
-		              <li><a href="#" class="py-1 d-block">Careers</a></li>
+		              <li><a href="{{ route('aquafitness.about', ['lang' => app()->getLocale()]) }}" class="py-1 d-block">Why Aquafitness?</a></li>
 		              <li><a href="#" class="py-1 d-block">Blog</a></li>
 		            </ul>
 							</div>
-							<div class="col-md-3 mb-md-0 mb-4 border-left">
+							<!--div class="col-md-3 mb-md-0 mb-4 border-left">
 								<h2 class="footer-heading">Resources</h2>
 								<ul class="list-unstyled">
-		              <li><a href="#" class="py-1 d-block">Security</a></li>
-		              <li><a href="#" class="py-1 d-block">Global</a></li>
-		              <li><a href="#" class="py-1 d-block">Charts</a></li>
-		              <li><a href="#" class="py-1 d-block">Privacy</a></li>
-		            </ul>
-							</div>
+								<li><a href="#" class="py-1 d-block">Security</a></li>
+								<li><a href="#" class="py-1 d-block">Global</a></li>
+								<li><a href="#" class="py-1 d-block">Charts</a></li>
+								<li><a href="#" class="py-1 d-block">Privacy</a></li>
+								</ul>
+							</div--->
 							<div class="col-md-3 mb-md-0 mb-4 border-left">
 								<h2 class="footer-heading">Social</h2>
 								<ul class="list-unstyled">
-		              <li><a href="#" class="py-1 d-block">Facebook</a></li>
-		              <li><a href="#" class="py-1 d-block">Twitter</a></li>
-		              <li><a href="#" class="py-1 d-block">Instagram</a></li>
-		              <li><a href="#" class="py-1 d-block">Google</a></li>
+		              <li><a href="https://www.facebook.com/latelieraquafitness/" class="py-1 d-block">Facebook</a></li>
+		              <li><a href="https://www.linkedin.com/company/l'atelier-aquafitness/?originalSubdomain=ae" class="py-1 d-block">LinkedIn</a></li>
+		              <li><a href="https://www.instagram.com/latelieraquafitness_dubai/?hl=en" class="py-1 d-block">Instagram</a></li>
 		            </ul>
 							</div>
 						</div>

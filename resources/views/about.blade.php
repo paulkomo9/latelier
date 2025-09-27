@@ -25,7 +25,7 @@
 	          <div class="heading-section mb-5">
 	          	<div class="pl-md-5">
 		          	<span class="subheading mb-2">Welcome to Latelier Aquafitness</span>
-		            <h2 class="mb-2">Hello! Aqua fitness is a natural way of improving your health</h2>
+		            <h2 class="mb-2">Dive Into Wellness with Aquafitness!</h2>
 	            </div>
 	          </div>
 	          <div class="pl-md-5">
@@ -44,61 +44,8 @@
 				</div>
 			</div>
 	</section>
-	<section class="ftco-section">
-    	<div class="container">
-    		<div class="row justify-content-center pb-5 mb-3">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-          	<span class="subheading mb-3">Why Us</span>
-            <h2>Why Choose L'Atelier Aquafitness?</h2>
-          </div>
-        </div>
-    		<div class="row">
-          <div class="col-md-3 d-flex services align-self-stretch px-4 ftco-animate">
-            <div class="d-block text-center">
-              <div class="icon d-flex justify-content-center align-items-center">
-            		<span class="flaticon-first"></span>
-              </div>
-              <div class="media-body p-2 mt-3">
-                <h3 class="heading">High-End Experience</h3>
-                 <p>L'Atelier Aquafitness is a high end aqua fitness boutique bringing to Dubai a new and amazing fitness concept known in Europe as Aquabiking.</p>
-              </div>
-            </div>      
-          </div>
-          <div class="col-md-3 d-flex services align-self-stretch px-4 ftco-animate">
-            <div class="d-block text-center">
-              <div class="icon d-flex justify-content-center align-items-center">
-            		<span class="flaticon-woman"></span>
-              </div>
-              <div class="media-body p-2 mt-3">
-                <h3 class="heading">Ladies Only</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-              </div>
-            </div>    
-          </div>
-          <div class="col-md-3 d-flex services align-self-stretch px-4 ftco-animate">
-            <div class="d-block text-center">
-              <div class="icon d-flex justify-content-center align-items-center">
-            		<span class="flaticon-diet-1"></span>
-              </div>
-              <div class="media-body p-2 mt-3">
-                <h3 class="heading">Low-Impact, High Intensity Workouts</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-              </div>
-            </div>      
-          </div>
-          <div class="col-md-3 d-flex services align-self-stretch px-4 ftco-animate">
-            <div class="d-block text-center">
-              <div class="icon d-flex justify-content-center align-items-center">
-            		<span class="flaticon-diet"></span>
-              </div>
-              <div class="media-body p-2 mt-3">
-                <h3 class="heading">Detoxification and Regeneration</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-              </div>
-            </div>      
-          </div>
-        </div>
-    	</div>
-    </section>
+   	<!-- ========== Why Us ========== -->
+       @include('layouts.why')
+    <!-- ========== Why Us End ========== -->
 
 @endsection

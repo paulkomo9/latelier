@@ -92,5 +92,30 @@ $(function () {
             },    
         ]	 	 	 
     });
+    
+
+    /**
+     * Click Button to Create New Schedule
+     */
+    $('#createNewUser').click(function () {
+        //load modal
+        optModal.modal('show');
+        //lets clear the error notifications first if any
+        clearFormErrors("#userForm");
+
+        $(".print-error-msg").css('display','none');
+        $('#modalUsersHeading').html(TRANSLATIONS.addNewUser);
+
+        $('#saveBtnUser').val("create-user");
+        $('#saveBtnUserName').html(TRANSLATIONS.addUser);
+        $('#singlePreview').attr("src", "").hide();
+        $('#userForm').trigger("reset");
+
+        // Explicitly clear hidden fields
+        $('#userForm').find('input:hidden').val('');
+        
+        var emailSelector = $('#email');
+        (im=new Inputmask("_@_._")).mask(emailSelector);
+    });
 
 });

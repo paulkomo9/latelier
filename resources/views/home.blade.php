@@ -12,7 +12,7 @@
         <div class="row gy-4 justify-content-center">
             <!-- My Bookings -->
             <div class="col-lg-2 col-md-4 col-sm-6">
-                <a href="#" class="text-decoration-none">
+                <a href="{{ route('my.bookings.index', ['lang' => app()->getLocale()]) }}" class="text-decoration-none">
                     <div class="category text-center p-4 bg-white shadow-sm rounded h-100">
                         <div class="category-icon mb-3">
                             <i class="fas fa-calendar-check fa-2x text-info"></i>
@@ -27,13 +27,13 @@
 
             <!-- My Packages -->
             <div class="col-lg-2 col-md-4 col-sm-6">
-                <a href="#" class="text-decoration-none">
+                <a href="{{ route('my.subscriptions.index', ['lang' => app()->getLocale()]) }}" class="text-decoration-none">
                     <div class="category text-center p-4 bg-white shadow-sm rounded h-100">
                         <div class="category-icon mb-3">
                             <i class="fas fa-shopping-cart fa-2x text-info"></i>
                         </div>
                         <div class="category-info">
-                            <span class="h6 d-block">My Packages</span>
+                            <span class="h6 d-block">My Subcriptions</span>
                             <p class="text-muted">Track usage, expiry dates & available sessions</p>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
 
             <!-- My Payment History -->
             <div class="col-lg-2 col-md-4 col-sm-6">
-                <a href="#" class="text-decoration-none">
+                <a href="{{ route('my.payments.index', ['lang' => app()->getLocale()]) }}" class="text-decoration-none">
                     <div class="category text-center p-4 bg-white shadow-sm rounded h-100">
                         <div class="category-icon mb-3">
                             <i class="fa-solid fa-file-invoice-dollar fa-2x text-info"></i>
@@ -64,7 +64,7 @@
                             <i class="fas fa-user-edit fa-2x text-info"></i>
                         </div>
                         <div class="category-info">
-                            <span class="h6 d-block">Edit Profile</span>
+                            <span class="h6 d-block">My Profile</span>
                             <p class="text-muted mb-1">Update your personal details and preferences</p>
                         </div>
                     </div>
@@ -219,7 +219,7 @@
          
 
         <div class="text-center mt-5">
-            <a href="#" class="btn btn-info px-4">View Full FitBoard</a>
+            <!--a href="#" class="btn btn-info px-4">View Full FitBoard</a-->
         </div>
     </div>
 </section>

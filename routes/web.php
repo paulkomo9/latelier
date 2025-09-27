@@ -13,6 +13,7 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\CurrenciesController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\SubscriptionsController;
+use App\Http\Controllers\PaymentsController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -27,6 +28,7 @@ Route::group(['prefix' => '{lang}', 'middleware' => ['setlang']], function () {
 
         Route::get('/about', [PageController::class, 'about'])->name('about');
         Route::get('/contact', [PageController::class, 'contact'])->name('contact');
+        Route::get('/why-aquafitness', [PageController::class, 'aboutAquafitness'])->name('aquafitness.about');
 
         Auth::routes();
 
@@ -57,11 +59,13 @@ Route::group(['prefix' => '{lang}', 'middleware' => ['setlang']], function () {
         Route::get('booking/confirmation/{id}', [BookingsController::class, 'confirmation'])->name('bookings.confirmation');
         Route::post('sessions/book/{id}', [BookingsController::class, 'book'])->name('sessions.book');
         Route::post('bookings/list',[BookingsController::class, 'displayBookings'])->name('bookings.list');
+        Route::get('my/bookings',[BookingsController::class, 'myBookings'])->name('my.bookings.index');
         Route::resource('/bookings', BookingsController::class)->name('*','bookings');
 
         
         //Subscriptions
         Route::post('subscriptions/list',[SubscriptionsController::class, 'displaySubscriptions'])->name('subscriptions.list');
+        Route::get('my/subscriptions',[SubscriptionsController::class, 'mySubscriptions'])->name('my.subscriptions.index');
         Route::resource('/subscriptions', SubscriptionsController::class)->name('*','subscriptions');
 
 
@@ -83,6 +87,11 @@ Route::group(['prefix' => '{lang}', 'middleware' => ['setlang']], function () {
         Route::get('checkout/confirmation', [CheckoutController::class, 'confirmation'])->name('checkout.confirmation');
         Route::get('checkout/{type}/{id}', [CheckoutController::class, 'checkout'])->name('checkout.page');
         Route::post('checkout/{type}/{id}', [CheckoutController::class, 'process'])->name('checkout.process');
+
+        //Payments 
+        Route::get('my/payments',[PaymentsController::class, 'myPayments'])->name('my.payments.index');
+        Route::post('payments/list',[PaymentsController::class, 'displayPayments'])->name('payments.list');
+        Route::resource('/payments', PaymentsController::class)->name('*','payments');
 
 });
 
