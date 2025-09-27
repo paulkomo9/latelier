@@ -44,4 +44,9 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'nocaptcha' => [
+        'sitekey' => env('NOCAPTCHA_SITEKEY'),
+        'secret'  => env('NOCAPTCHA_SECRET'),
+    ],
+
 ];

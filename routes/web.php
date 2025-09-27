@@ -14,6 +14,7 @@ use App\Http\Controllers\CurrenciesController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\SubscriptionsController;
 use App\Http\Controllers\PaymentsController;
+use App\Http\Controllers\ContactController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -92,6 +93,10 @@ Route::group(['prefix' => '{lang}', 'middleware' => ['setlang']], function () {
         Route::get('my/payments',[PaymentsController::class, 'myPayments'])->name('my.payments.index');
         Route::post('payments/list',[PaymentsController::class, 'displayPayments'])->name('payments.list');
         Route::resource('/payments', PaymentsController::class)->name('*','payments');
+
+        //Contact Form
+        Route::post('contact/submit',[ContactController::class, 'submitForm'])->name('contact.submit');
+
 
 });
 

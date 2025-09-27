@@ -25,10 +25,26 @@
 									<div class="contact-wrap w-100 p-md-5 p-4">
 										<h3 class="mb-4">Get in touch</h3>
 										<div id="form-message-warning" class="mb-4"></div> 
-					      		<div id="form-message-success" class="mb-4">
-					            Your message was sent, thank you!
-					      		</div>
-										<form method="POST" id="contactForm" name="contactForm" class="contactForm">
+
+								{{-- Success Message --}}
+									@if(session('success'))
+										<div class="alert alert-success mb-4">
+											{{ session('success') }}
+										</div>
+									@endif
+
+									{{-- General Errors --}}
+									@if($errors->any())
+										<div class="alert alert-danger mb-4">
+											<ul style="margin-bottom: 0;">
+												@foreach($errors->all() as $error)
+													<li>{{ $error }}</li>
+												@endforeach
+											</ul>
+										</div>
+									@endif
+										<form method="POST" id="contactForm" name="contactForm" class="contactForm" action="{{ route('contact.submit', ['lang' => app()->getLocale()]) }}">
+											@csrf
 											<div class="row">
 												<div class="col-md-6">
 													<div class="form-group">
@@ -42,6 +58,9 @@
 														<input type="email" class="form-control" name="email" id="email" placeholder="Email">
 													</div>
 												</div>
+												<!-- Honeypot field -->
+                                                <input type="text" name="phone" style="display:none"> <!-- BOT TRAP -->
+
 												<div class="col-md-12">
 													<div class="form-group">
 														<label class="label" for="subject">Subject</label>
@@ -54,6 +73,16 @@
 														<textarea name="message" class="form-control" id="message" cols="30" rows="4" placeholder="Message"></textarea>
 													</div>
 												</div>
+
+												<div class="col-md-12">
+													<div class="form-group">
+														<!-- NoCaptcha -->
+														{!! NoCaptcha::display() !!}
+														{!! NoCaptcha::renderJs() !!}
+													</div>
+												</div>
+												
+
 												<div class="col-md-12">
 													<div class="form-group">
 														<input type="submit" value="Send Message" class="btn btn-primary">
@@ -69,19 +98,19 @@
 										<h3>Let's get in touch</h3>
 										<p class="mb-4">We're open for any suggestion or just to have a chat</p>
 					        	<div class="dbox w-100 d-flex align-items-start">
-					        		<div class="icon d-flex align-items-center justify-content-center">
+					        		<!--div class="icon d-flex align-items-center justify-content-center">
 					        			<span class="fa fa-map-marker"></span>
 					        		</div>
 					        		<div class="text pl-3">
 						            <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
-						          </div>
+						          </div-->
 					          </div>
 					        	<div class="dbox w-100 d-flex align-items-center">
 					        		<div class="icon d-flex align-items-center justify-content-center">
 					        			<span class="fa fa-phone"></span>
 					        		</div>
 					        		<div class="text pl-3">
-						            <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
+						            <p><span>Phone:</span> <a href="tel://1234567920">+ +971 568 394 141</a></p>
 						          </div>
 					          </div>
 					        	<div class="dbox w-100 d-flex align-items-center">
@@ -89,7 +118,7 @@
 					        			<span class="fa fa-paper-plane"></span>
 					        		</div>
 					        		<div class="text pl-3">
-						            <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@latelieraquafitness.com</a></p>
+						            <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@latelieraquafitness.fit</a></p>
 						          </div>
 					          </div>
 					        	<div class="dbox w-100 d-flex align-items-center">
@@ -97,7 +126,7 @@
 					        			<span class="fa fa-globe"></span>
 					        		</div>
 					        		<div class="text pl-3">
-						            <p><span>Website</span> <a href="#">latelieraquafitness.com</a></p>
+						            <p><span>Website</span> <a href="#">latelieraquafitness.fit</a></p>
 						          </div>
 					          </div>
 				          </div>
@@ -106,7 +135,7 @@
 						</div>
 					</div>
 					<div class="col-md-12">
-    				<!--div id="map" class="map"></div-->
+    				<div id="map" class="map"></div->
     			</div>
 				</div>
     	</div>

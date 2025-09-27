@@ -28,7 +28,9 @@ class CheckCalendarEntries extends Command
      */
     public function handle()
     {
+        date_default_timezone_set('Asia/Dubai');
         $now = Carbon::now();
+
 
         $affected = Appointments::where('start_date_time', '<', $now)
             ->where('appointment_status', '!=', 22)

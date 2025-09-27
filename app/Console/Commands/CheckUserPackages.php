@@ -28,6 +28,7 @@ class CheckUserPackages extends Command
      */
     public function handle()
     {
+        date_default_timezone_set('Asia/Dubai');
         $now = Carbon::now();
 
         $affectedPackages = UserPackages::where(function ($query) use ($now) {
