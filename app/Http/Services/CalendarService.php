@@ -281,25 +281,38 @@ class CalendarService
             $config = array_merge($defaultConfig, $config);
 
             // Delete appointments outside updated date range
-            Appointments::where('schedule_id', $scheduleId)
+            /*Appointments::where('schedule_id', $scheduleId)
                 ->where(function ($query) use ($start, $end) {
                     $query->where('start_date_time', '<', $start)
                           ->orWhere('start_date_time', '>', $end);
                 })
                 ->where('appointment_status', 15)// focus on confirmed appointments
-                ->delete();
+                ->delete();*/
+
+            //Soft Delete
+            Appointments::where('schedule_id', $scheduleId)
+                ->where(function ($query) use ($start, $end) {
+                    $query->where('start_date_time', '<', $start)
+                        ->orWhere('start_date_time', '>', $end);
+                })
+                ->where('appointment_status', 15) // focus on confirmed appointments
+                ->update([
+                    'appointment_status' => 2, // Assuming 2 = soft deleted
+                    'deleted_at' => Carbon::now(),
+                    'deleted_by' => Auth::id() ?? null, // Optional: log who deleted it
+                ]);
 
             // Create new appointments for days in new range
             for ($date = $start->copy(); $date->lte($end); $date->addDay()) {
                 $dayStart = Carbon::parse($date->toDateString() . ' ' . $startTime);
                 $dayEnd = Carbon::parse($date->toDateString() . ' ' . $endTime);
 
-                $exists = Appointments::where('schedule_id', $scheduleId)
+                /*$exists = Appointments::where('schedule_id', $scheduleId)
                     ->whereDate('start_date_time', $dayStart->toDateString())
                     ->where('appointment_status', 15)// focus on confirmed appointments
-                    ->exists();
+                    ->exists();*/
 
-                if (!$exists) {
+                //if (!$exists) { not needed since we are soft deleting
                     Appointments::create([
                         'schedule_id' => $scheduleId,
                         'title' => $title,
@@ -315,7 +328,7 @@ class CalendarService
                         'deleted_by' => null,
                         ...$config,
                     ]);
-                }
+                //}
             }
         } catch (Throwable $e) {
             Log::build([
