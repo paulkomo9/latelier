@@ -262,6 +262,7 @@ class CalendarService
     public function syncAppointmentsFromSchedule($scheduleId, $title, $startDateTime, $endDateTime, $trainerId, $created_by, $updated_by, $appointment_status, $slots, $appointment_image, $description, array $config = []): void 
     {
         try {
+
             $start = Carbon::parse($startDateTime)->startOfDay();
             $end = Carbon::parse($endDateTime)->startOfDay();
             $startTime = Carbon::parse($startDateTime)->format('H:i:s');
@@ -297,7 +298,7 @@ class CalendarService
                 })
                 ->where('appointment_status', 15) // focus on confirmed appointments
                 ->update([
-                    'appointment_status' => 2, // Assuming 2 = soft deleted
+                    'appointment_status' => 12, // 12 is cancelled
                     'deleted_at' => Carbon::now(),
                     'deleted_by' => Auth::id() ?? null, // Optional: log who deleted it
                 ]);
@@ -330,6 +331,7 @@ class CalendarService
                     ]);
                 //}
             }
+
         } catch (Throwable $e) {
             Log::build([
                 'driver' => 'single',

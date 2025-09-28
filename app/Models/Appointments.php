@@ -32,7 +32,7 @@ class Appointments extends Model
         'deleted_by',
         'created_by',
         'updated_by',
-        'deleted_by',
+        'deleted_at',
         'appointment_status',
     ];
 
