@@ -363,6 +363,8 @@ class CalendarController extends Controller
                         'status' => 15,                     // Filter confirmed calendar entries
                         'per_page' => 12,                  // Number per page
                         'searchword' => $request->search,  // Optional if search is active
+                        'order_by' => 'start_date_time',
+                        'order_direction' => 'asc', // <-- optional
                     ];
 
                     

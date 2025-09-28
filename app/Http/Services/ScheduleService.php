@@ -271,10 +271,10 @@ class ScheduleService
     {
 
             $columns = array( 
-                    0 => 'id', 
+                    0 => 'start_date_time', 
                     1 => 'title',
                     2 => 'location',
-                    3 => 'start_date_time',
+                    3 => 'id',
                     4 => 'end_date_time',
                     5 => 'created_at',
                     6 => 'updated_at',

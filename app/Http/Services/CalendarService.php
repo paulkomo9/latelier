@@ -60,6 +60,34 @@ class CalendarService
                                             })
                                             ->whereNull('deleted_at'); //Add this to exclude soft-deleted records;
 
+
+                // Apply dynamic order by
+                $query = $query->when(!empty($criteria['order_by']), function ($query) use ($criteria) {
+                    $orderBy = $criteria['order_by'];
+
+                    if (is_array($orderBy) && isset($orderBy[0]['field'])) {
+                        // multiple fields
+                        foreach ($orderBy as $order) {
+                            $field = $order['field'] ?? null;
+                            $direction = strtolower($order['direction'] ?? 'asc');
+                            if ($field && in_array($direction, ['asc', 'desc'])) {
+                                $query->orderBy($field, $direction);
+                            }
+                        }
+                    } else {
+                        // single field
+                        $field = $orderBy;
+                        $direction = strtolower($criteria['order_direction'] ?? 'asc');
+                        if (in_array($direction, ['asc', 'desc'])) {
+                            $query->orderBy($field, $direction);
+                        }
+                    }
+
+                    return $query;
+                });
+
+
+
                 // Choose terminal method
                 switch ($method) {
                     case 'paginate':
@@ -392,10 +420,10 @@ class CalendarService
     {
 
             $columns = array( 
-                    0 => 'id', 
+                    0 => 'start_date_time', 
                     1 => 'title',
                     2 => 'location',
-                    3 => 'start_date_time',
+                    3 => 'id',
                     4 => 'end_date_time',
                     5 => 'created_at',
                     6 => 'updated_at',
