@@ -54,6 +54,16 @@
       <!-- Load Material Design Icons (MDI) all icons CSS -->
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css" rel="stylesheet">
 
+      <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MQL195R3VC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-MQL195R3VC');
+    </script>
+
 
     <!-- Jquery at the top advisable -->
    <script src="{{ asset('js/jquery.min.js') }}"></script>

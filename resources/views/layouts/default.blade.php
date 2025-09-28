@@ -31,8 +31,19 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
 
-      <!-- Load Font Awesome all icons CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"/>
+      <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MQL195R3VC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-MQL195R3VC');
+    </script>
+
+
+    <!-- Load Font Awesome all icons CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"/>
 
     <!-- Jquery at the top advisable -->
    <script src="{{ asset('js/jquery.min.js') }}"></script>

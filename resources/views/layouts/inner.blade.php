@@ -71,10 +71,18 @@
 
     <!-- Geoapify JS (Correct Browser Build) -->
     <script src="https://unpkg.com/@geoapify/geocoder-autocomplete@^2/dist/index.min.js"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MQL195R3VC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-MQL195R3VC');
+    </script>
     
-
    @livewireStyles
-
 
   </head>
   <body>
