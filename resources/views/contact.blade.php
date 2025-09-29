@@ -106,12 +106,12 @@
 						          </div-->
 					          </div>
 					        	<div class="dbox w-100 d-flex align-items-center">
-					        		<div class="icon d-flex align-items-center justify-content-center">
+					        		<!--div class="icon d-flex align-items-center justify-content-center">
 					        			<span class="fa fa-phone"></span>
 					        		</div>
 					        		<div class="text pl-3">
 						            <p><span>Phone:</span> <a href="tel://1234567920">+ +971 568 394 141</a></p>
-						          </div>
+						          </div-->
 					          </div>
 					        	<div class="dbox w-100 d-flex align-items-center">
 					        		<div class="icon d-flex align-items-center justify-content-center">

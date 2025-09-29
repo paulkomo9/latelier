@@ -2,7 +2,7 @@
 			<div class="container">
 				<div class="row justify-content-between">
 						<div class="col d-flex align-items-center">
-							<p class="mb-0 phone"><span class="mailus">Phone no:</span> <a href="#">+971 568 394 141</a> or <span class="mailus">email us:</span> <a href="#">info@latelieraquafitness.fit</a></p>
+							<p class="mb-0 phone"><!--span class="mailus">Phone no:</span> <a href="#">+971 568 394 141</a> or --> <span class="mailus">Email us:</span> <a href="#">info@latelieraquafitness.fit</a></p>
 						</div>
 						<div class="col d-flex justify-content-end">
 							<div class="social-media">
