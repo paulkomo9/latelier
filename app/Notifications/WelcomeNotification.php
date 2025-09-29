@@ -42,7 +42,7 @@ class WelcomeNotification extends Notification implements ShouldQueue
                 ->line('Whether you’re diving into your first aqua session or returning to flow with us, we’re here to support your wellness journey every step of the way.')
                 ->action('Explore Your Dashboard', url('/dashboard'))
                 ->line('💧 Let’s make waves together!')
-                ->line('Need help getting started? [Click here for your welcome guide](https://latelieraquafitness.fit/welcome-guide)')
+                ->line('Need help getting started? [View our packages and choose your plan] (https://latelieraquafitness.fit/en/packages/explore)')
                 ->salutation('With strength and style,  
         The L’Atelier Aqua Fitness Team');
 
