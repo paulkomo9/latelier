@@ -16,15 +16,13 @@ $(function () {
     }
 
 
-
     /**
-     * integrates Stripe Elements for card payment
-     */
+ * Stripe Elements - Clean Implementation
+ */
     const stripe = Stripe(window.Latelier.stripeKey);
-
     const elements = stripe.elements();
 
-    // Better styled card input (optional)
+    // Card عنصر
     const cardElement = elements.create('card', {
         style: {
             base: {
@@ -47,32 +45,16 @@ $(function () {
         cardButton.disabled = true;
         cardButton.innerHTML = '<i class="fa fa-spinner fa-spin me-1"></i> Processing...';
 
-        // Step 1: Create Payment Method
-        const { error: methodError, paymentMethod } = await stripe.createPaymentMethod(
-            'card',
-            cardElement,
-            {
-                billing_details: {
-                    name: cardHolderName.value,
-                    email: document.getElementById('email').value,
-                    address: {
-                        line1: document.getElementById('line1').value,
-                        city: document.getElementById('city').value,
-                        postal_code: document.getElementById('postal_code').value,
-                        country: document.getElementById('country').value
-                    }
-                }
-            }
-        );
+        // 🔍 Debug (keep for now)
+        console.log({
+            email: document.getElementById('email')?.value,
+            line1: document.getElementById('line1')?.value,
+            city: document.getElementById('city')?.value,
+            postal_code: document.getElementById('postal_code')?.value,
+            country: document.getElementById('country')?.value
+        });
 
-        if (methodError) {
-            document.getElementById('card-errors').textContent = methodError.message;
-            cardButton.disabled = false;
-            cardButton.innerHTML = '<i class="fa fa-credit-card"></i> Pay';
-            return;
-        }
-
-        // Step 2: Confirm Payment Intent
+        // ✅ Confirm Payment (ONLY step needed)
         const { error: confirmError, paymentIntent } = await stripe.confirmCardPayment(
             clientSecret,
             {
@@ -80,12 +62,12 @@ $(function () {
                     card: cardElement,
                     billing_details: {
                         name: cardHolderName.value,
-                        email: document.getElementById('email').value,
+                        email: document.getElementById('email')?.value || '',
                         address: {
-                            line1: document.getElementById('line1').value,
-                            city: document.getElementById('city').value,
-                            postal_code: document.getElementById('postal_code').value,
-                            country: document.getElementById('country').value
+                            line1: document.getElementById('line1')?.value || '',
+                            city: document.getElementById('city')?.value || '',
+                            postal_code: document.getElementById('postal_code')?.value || '',
+                            country: document.getElementById('country')?.value || ''
                         }
                     }
                 },
@@ -104,7 +86,7 @@ $(function () {
             return;
         }
 
-        // Step 3: If succeeded, send intent ID back to server
+        // ✅ Success → send intent to backend
         if (paymentIntent.status === 'succeeded') {
             const intentInput = document.createElement('input');
             intentInput.type = 'hidden';
@@ -112,15 +94,8 @@ $(function () {
             intentInput.value = paymentIntent.id;
             form.appendChild(intentInput);
 
-            const pmInput = document.createElement('input');
-            pmInput.type = 'hidden';
-            pmInput.name = 'payment_method';
-            pmInput.value = paymentMethod.id;
-            form.appendChild(pmInput);
-
             form.submit();
         }
     });
-
 
 });
