@@ -7,7 +7,20 @@
                 <div class="col-md-8 offset-md-2">
                     <form method="GET" action="{{ route('sessions.explore', ['lang' => app()->getLocale()]) }}">
                        <div class="input-group">
-                            <input type="text" name="search" class="form-control form-control-ms" placeholder="Search sessions..." value="{{ request('search') }}">
+                            <!-- Date Picker Input -->
+                            <input type="date" name="date" class="form-control form-control-ms" value="{{ request('date') }}">
+
+                            <select name="class_type" class="form-select">
+    <option value="">All Class Types</option>
+    <option value="aqua_zumba">Aqua Flow</option>
+    <option value="deep_water_running">Aqua HydroSpin</option>
+    <option value="aqua_hiit">Aqua HIIT</option>
+    <!-- Add more -->
+</select>
+
+
+                            <input type="text" name="search" class="form-control form-control-ms" placeholder="E.g. “Deep Water Workout”" value="{{ request('search') }}">
+                            
                             <button class="btn btn-primary" type="submit">Search</button>
                         </div>
                     </form>

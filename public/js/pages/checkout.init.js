@@ -5,9 +5,9 @@ $(function () {
      */
     $.ajaxSetup({
         headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-                'X-Requested-With': 'XMLHttpRequest'
-            }
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+            'X-Requested-With': 'XMLHttpRequest'
+        }
     });
 
     if (typeof Stripe === 'undefined') {
@@ -15,7 +15,7 @@ $(function () {
         return;
     }
 
- 
+
 
     /**
      * integrates Stripe Elements for card payment
@@ -24,7 +24,16 @@ $(function () {
 
     const elements = stripe.elements();
 
-    const cardElement = elements.create('card');
+    // Better styled card input (optional)
+    const cardElement = elements.create('card', {
+        style: {
+            base: {
+                fontSize: '16px',
+                color: '#32325d'
+            }
+        }
+    });
+
     cardElement.mount('#card-element');
 
     const form = document.getElementById('payment-form');
@@ -43,7 +52,16 @@ $(function () {
             'card',
             cardElement,
             {
-                billing_details: { name: cardHolderName.value }
+                billing_details: {
+                    name: cardHolderName.value,
+                    email: document.getElementById('email').value,
+                    address: {
+                        line1: document.getElementById('line1').value,
+                        city: document.getElementById('city').value,
+                        postal_code: document.getElementById('postal_code').value,
+                        country: document.getElementById('country').value
+                    }
+                }
             }
         );
 
@@ -58,7 +76,12 @@ $(function () {
         const { error: confirmError, paymentIntent } = await stripe.confirmCardPayment(
             clientSecret,
             {
-                payment_method: paymentMethod.id
+                payment_method: paymentMethod.id,
+                payment_method_options: {
+                    card: {
+                        request_three_d_secure: 'any'
+                    }
+                }
             }
         );
 
