@@ -76,7 +76,19 @@ $(function () {
         const { error: confirmError, paymentIntent } = await stripe.confirmCardPayment(
             clientSecret,
             {
-                payment_method: paymentMethod.id,
+                payment_method: {
+                    card: cardElement,
+                    billing_details: {
+                        name: cardHolderName.value,
+                        email: document.getElementById('email').value,
+                        address: {
+                            line1: document.getElementById('line1').value,
+                            city: document.getElementById('city').value,
+                            postal_code: document.getElementById('postal_code').value,
+                            country: document.getElementById('country').value
+                        }
+                    }
+                },
                 payment_method_options: {
                     card: {
                         request_three_d_secure: 'any'
